@@ -6,26 +6,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="../../assets/images/icons/favicon.ico" />
+    <link rel="icon" type="image/png" href="../../../public/assets/images/icons/favicon.ico" />
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../../assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../public/assets/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../../assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="../../../public/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../../assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="../../../public/assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../../assets/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="../../../public/assets/vendor/animate/animate.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../../assets/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../public/assets/vendor/css-hamburgers/hamburgers.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../../assets/vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../public/assets/vendor/animsition/css/animsition.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../../assets/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../public/assets/vendor/select2/select2.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../../assets/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="../../../public/assets/vendor/daterangepicker/daterangepicker.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../../assets/css/util.css">
-    <link rel="stylesheet" type="text/css" href="../../assets/css/main2.css">
+    <link rel="stylesheet" type="text/css" href="../../../public/assets/css/util.css">
+    <link rel="stylesheet" type="text/css" href="../../../public/assets/css/main2.css">
     <!--===============================================================================================-->
 </head>
 
@@ -33,11 +35,16 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form class="login100-form validate-form" style="background-color: #0c0c0c;">
-                    <span class="login100-form-title p-b-43">
+                <form class="login100-form validate-form">
+                    <div align="right" style="margin-bottom: 30px;">
+                        <a href="../index.php">
+                            <i class="fa fa-arrow-right text-sm pr-2 " style="color: #ffbe33">
+                            </i>
+                        </a>
+                    </div>
+                    <div class="login100-form-title p-b-43">
                         Masuk untuk Melanjutkan
-                    </span>
-
+                    </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
                         <input class="input100" type="text" name="email">
@@ -79,11 +86,11 @@
                             Belum punya akun?
                         </span>
                         <span>
-                            <a href="/register" class="txt1">Daftar Sekarang</a>
+                            <a href="register.php" class="txt1">Daftar Sekarang</a>
                         </span>
                     </div>
                 </form>
-                <div class="login100-more" style="background-image: url('../../assets/images/bg-01.jpg');">
+                <div class="login100-more" style="background-image: url('../../../public/assets/images/bg-01.jpg');">
                 </div>
             </div>
         </div>
@@ -94,21 +101,21 @@
 
 
     <!--===============================================================================================-->
-    <script src="../../assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../../public/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
-    <script src="../../assets/vendor/animsition/js/animsition.min.js"></script>
+    <script src="../../../public/assets/vendor/animsition/js/animsition.min.js"></script>
     <!--===============================================================================================-->
-    <script src="../../assets/vendor/bootstrap/js/popper.js"></script>
-    <script src="../../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../public/assets/vendor/bootstrap/js/popper.js"></script>
+    <script src="../../../public/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
-    <script src="../../assets/vendor/select2/select2.min.js"></script>
+    <script src="../../../public/assets/vendor/select2/select2.min.js"></script>
     <!--===============================================================================================-->
-    <script src="../../assets/vendor/daterangepicker/moment.min.js"></script>
-    <script src="../../assets/vendor/daterangepicker/daterangepicker.js"></script>
+    <script src="../../../public/assets/vendor/daterangepicker/moment.min.js"></script>
+    <script src="../../../public/assets/vendor/daterangepicker/daterangepicker.js"></script>
     <!--===============================================================================================-->
-    <script src="../../assets/vendor/countdowntime/countdowntime.js"></script>
+    <script src="../../../public/assets/vendor/countdowntime/countdowntime.js"></script>
     <!--===============================================================================================-->
-    <script src="../../assets/js/main2.js"></script>
+    <script src="../../../public/assets/js/main2.js"></script>
 
 </body>
 

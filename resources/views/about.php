@@ -11,12 +11,12 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="shortcut icon" href="../../assets/images/favicon.png" type="">
+    <link rel="shortcut icon" href="../../public/assets/images/favicon.png" type="">
 
-    <title> SLM | {{ $title }}</title>
+    <title> SLM | About</title>
 
     <!-- bootstrap core css -->
-    <link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/assets/css/bootstrap.css" />
 
     <!--owl slider stylesheet -->
     <link rel="stylesheet" type="text/css"
@@ -27,27 +27,27 @@
         integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ=="
         crossorigin="anonymous" />
     <!-- font awesome style -->
-    <link href="../../assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../public/assets/css/font-awesome.min.css" rel="stylesheet" />
 
     <!-- Custom styles for this template -->
-    <link href="../../assets/css/style.css" rel="stylesheet" />
+    <link href="../../public/assets/css/style.css" rel="stylesheet" />
     <!-- responsive style -->
-    <link href="../../assets/css/responsive.css" rel="stylesheet" />
+    <link href="../../public/assets/css/responsive.css" rel="stylesheet" />
 
 
 </head>
 
-<body class="{{ $sub_page }}">
+<body class="sub_page">
 
     <div class="hero_area">
         <div class="bg-box">
-            <img src="../../assets/images/hero-bg.jpg" alt="">
+            <img src="../../public/assets/images/hero-bg.jpg" alt="">
         </div>
         <!-- header section strats -->
         <header class="header_section">
             <div class="container">
                 <nav class="navbar navbar-expand-lg custom_nav-container ">
-                    <a class="navbar-brand" href="/">
+                    <a class="navbar-brand" href="index.php">
                         <span>
                             Feane
                         </span>
@@ -61,21 +61,21 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav  mx-auto ">
-                            <li class="nav-item {{ ($title === "Home" ? 'active' : '' ) }}">
-                                <a class="nav-link" href="/">Home</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.php">Home</a>
                             </li>
-                            <li class="nav-item {{ ($title === "Product" ? 'active' : '' ) }}">
-                                <a class="nav-link" href="/product">Product</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="product.php">Product</a>
                             </li>
-                            <li class="nav-item {{ ($title === "About" ? 'active' : '' ) }}">
-                                <a class="nav-link" href="/about">About</a>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="about.php">About</a>
                             </li>
                         </ul>
                         <div class="user_option">
-                            <a href="/profile" class="user_link">
+                            <a href="profile.php" class="user_link">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
-                            <a class="cart_link" href="chart">
+                            <a class="cart_link" href="chart.php">
                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;"
@@ -137,7 +137,7 @@
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                 </button>
                             </form>
-                            <a href="/login" class="order_online">
+                            <a href="auth/login.php" class="order_online">
                                 Masuk
                             </a>
                         </div>
@@ -156,7 +156,7 @@
             <div class="row">
                 <div class="col-md-6 ">
                     <div class="img-box">
-                        <img src="../../assets/images/about-img.png" alt="">
+                        <img src="../../public/assets/images/about-img.png" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -274,13 +274,13 @@
     <!-- footer section -->
 
     <!-- jQery -->
-    <script src="../../assets/js/jquery-3.4.1.min.js"></script>
+    <script src="../../public/assets/js/jquery-3.4.1.min.js"></script>
     <!-- popper js -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
     <!-- bootstrap js -->
-    <script src="../../assets/js/bootstrap.js"></script>
+    <script src="../../public/assets/js/bootstrap.js"></script>
     <!-- owl slider -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
     </script>
@@ -290,7 +290,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js">
     </script>
     <!-- custom js -->
-    <script src="../../assets/js/custom.js"></script>
+    <script src="../../public/assets/js/custom.js"></script>
     <!-- Google Map -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
     </script>

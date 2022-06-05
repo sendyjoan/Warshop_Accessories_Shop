@@ -46,7 +46,7 @@
         <header class="header_section">
             <div class="container">
                 <nav class="navbar navbar-expand-lg custom_nav-container ">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="index.php">
                         <span>
                             Feane
                         </span>
@@ -61,20 +61,21 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav  mx-auto ">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link active" href="index.php">Home <span
+                                        class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="menu.html">Menu</a>
+                                <a class="nav-link" href="product.php">Produk</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="about.html">About</a>
+                                <a class="nav-link" href="about.php">About</a>
                             </li>
                         </ul>
                         <div class="user_option">
                             <a href="" class="user_link">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
-                            <a class="cart_link" href="#">
+                            <a class="cart_link" href="chart.php">
                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;"
@@ -136,8 +137,8 @@
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                 </button>
                             </form>
-                            <a href="" class="order_online">
-                                Order Online
+                            <a href="auth/login.php" class="order_online">
+                                Masuk
                             </a>
                         </div>
                     </div>
@@ -163,7 +164,7 @@
                                             labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
                                         </p>
                                         <div class="btn-box">
-                                            <a href="" class="btn1">
+                                            <a href="product.php" class="btn1">
                                                 Order Now
                                             </a>
                                         </div>
@@ -1190,7 +1191,7 @@
 
     <!-- client section -->
 
-    <section class="client_section layout_padding-bottom">
+    <section class="client_section layout_padding-bottom mt-4">
         <div class="container">
             <div class="heading_container heading_center psudo_white_primary mb_45">
                 <h2>
