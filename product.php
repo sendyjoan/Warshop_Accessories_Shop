@@ -29,7 +29,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM products ORDER BY idproduct ASC")
         echo "<td>".$user_data['deskripsi']."</td>";
         echo "<td>".$user_data['harga']."</td>";
         echo "<td>".$user_data['stock']."</td>";
-        echo "<td><a href='detail_product.php?id=$user_data[idproduct]'>Detail</a>";
+        echo "<td><a href='detail_product.php?id=$user_data[idproduct]'>Detail</a> <br> <a href='edit_product.php?id=$user_data[idproduct]'>Edit</a></td>";
     }
     ?>
     </table>
