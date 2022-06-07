@@ -11,12 +11,12 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="shortcut icon" href="../../public/assets/images/favicon.png" type="">
+    <link rel="shortcut icon" href="public/assets/images/favicon.png" type="">
 
-    <title> SLM | About</title>
+    <title> SLM | Tentang</title>
 
     <!-- bootstrap core css -->
-    <link rel="stylesheet" type="text/css" href="../../public/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="public/assets/css/bootstrap.css" />
 
     <!--owl slider stylesheet -->
     <link rel="stylesheet" type="text/css"
@@ -27,134 +27,21 @@
         integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ=="
         crossorigin="anonymous" />
     <!-- font awesome style -->
-    <link href="../../public/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="public/assets/css/font-awesome.min.css" rel="stylesheet" />
 
     <!-- Custom styles for this template -->
-    <link href="../../public/assets/css/style.css" rel="stylesheet" />
+    <link href="public/assets/css/style.css" rel="stylesheet" />
     <!-- responsive style -->
-    <link href="../../public/assets/css/responsive.css" rel="stylesheet" />
+    <link href="public/assets/css/responsive.css" rel="stylesheet" />
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <style>
-    body {
-        background-color: rgb(209, 213, 219);
-    }
 
-    .emp-profile {
-        padding: 3%;
-        margin-top: 3%;
-        margin-bottom: 3%;
-        border-radius: 0.5rem;
-        background-color: #212529;
-    }
-
-    .profile-img {
-        text-align: center;
-    }
-
-    .profile-img img {
-        width: 70%;
-        height: 100%;
-    }
-
-    .profile-img .file {
-        position: relative;
-        overflow: hidden;
-        margin-top: -20%;
-        width: 70%;
-        border: none;
-        border-radius: 0;
-        font-size: 15px;
-        background: #212529b8;
-    }
-
-    .profile-img .file input {
-        position: absolute;
-        opacity: 0;
-        right: 0;
-        top: 0;
-    }
-
-    .profile-head h5 {
-        color: #fff;
-    }
-
-    .profile-head h6 {
-        color: #ffbe33;
-    }
-
-    .profile-edit-btn {
-        border: none;
-        border-radius: 1.5rem;
-        width: 70%;
-        padding: 2%;
-        font-weight: 600;
-        background-color: #ffbe33;
-        color: #fff;
-        cursor: pointer;
-    }
-
-    .profile-head .nav-tabs {
-        margin-bottom: 5%;
-    }
-
-    .profile-head .nav-tabs .nav-link {
-        font-weight: 600;
-        border: none;
-    }
-
-    .profile-head .nav-tabs .nav-link.active {
-        border: none;
-        border-bottom: 2px solid #0062cc;
-    }
-
-    .profile-work {
-        padding: 14%;
-        margin-top: -15%;
-    }
-
-    .profile-work p {
-        font-size: 12px;
-        color: #ffbe33;
-        font-weight: 600;
-        margin-top: 10%;
-    }
-
-    .profile-work a {
-        text-decoration: none;
-        color: #ffbe33;
-        font-weight: 600;
-        font-size: 14px;
-    }
-
-    .profile-work ul {
-        list-style: none;
-    }
-
-    .profile-tab label {
-        font-weight: 600;
-        color: #fff;
-    }
-
-    hr {
-        color: #fff;
-    }
-
-    .profile-tab p {
-        font-weight: 600;
-        color: #ffbe33;
-    }
-    </style>
-    <!------ Include the above in your HEAD tag ---------->
 </head>
 
 <body class="sub_page">
 
     <div class="hero_area">
         <div class="bg-box">
-            <img src="../../public/assets/images/hero-bg.jpg" alt="">
+            <img src="public/assets/images/hero-bg.jpg" alt="">
         </div>
         <!-- header section strats -->
         <header class="header_section">
@@ -178,17 +65,17 @@
                                 <a class="nav-link" href="index.php">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="product.php">Product</a>
+                                <a class="nav-link" href="product.php">Produk</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="about.php">About</a>
+                                <a class="nav-link" href="about.php">Tentang</a>
                             </li>
                         </ul>
                         <div class="user_option">
-                            <a href="profile.php" class="user_link">
+                            <a href="auth/login.php" class="user_link">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
-                            <a class="cart_link" href="chart.php">
+                            <a class="cart_link" href="auth/login.php">
                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;"
@@ -259,144 +146,46 @@
             </div>
         </header>
         <!-- end header section -->
+
     </div>
+    <!-- about section -->
 
+    <section class="about_section layout_padding">
+        <div class="container  ">
 
-    <div class="container emp-profile">
-        <form method="post">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="profile-img">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
-                            alt="" />
-                        <div class="file btn btn-lg btn-primary">
-                            Change Photo
-                            <input type="file" name="file" />
-                        </div>
+                <div class="col-md-6 ">
+                    <div class="img-box">
+                        <img src="public/assets/images/about-img.png" alt="">
                     </div>
                 </div>
-                <div class="col-md-6 mt-5">
-                    <div class="profile-head">
-                        <h5>
-                            Kshiti Ghelani
-                        </h5>
-                        <h6>
-                            Pelanggan
-                        </h6>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
-                </div>
-            </div>
-            <hr class="col-11 mt-4 color-white bg-white text-white">
-            <div class="row mt-4 ml-5">
-                <div class="col-md-8">
-                    <div class="tab-content profile-tab" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Id Pelanggan</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>Kshiti123</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Nama Lengkap</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>Kshiti Ghelani</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Alamat</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>Bandung</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Telepon</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>123 456 7890</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Tanggal Lahir</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>06 Juni 2006</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Tempat Lahir</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>Banjarmasin</p>
-                                </div>
-                            </div>
+                <div class="col-md-6">
+                    <div class="detail-box">
+                        <div class="heading_container">
+                            <h2>
+                                We Are Feane
+                            </h2>
                         </div>
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Experience</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>Expert</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Hourly Rate</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>10$/hr</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Total Projects</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>230</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>English Level</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>Expert</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Availability</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>6 months</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label>Your Bio</label><br />
-                                    <p>Your detail description</p>
-                                </div>
-                            </div>
-                        </div>
+                        <p>
+                            There are many variations of passages of Lorem Ipsum available, but the majority have
+                            suffered
+                            alteration
+                            in some form, by injected humour, or randomised words which don't look even slightly
+                            believable.
+                            If you
+                            are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything
+                            embarrassing
+                            hidden in
+                            the middle of text. All
+                        </p>
+                        <a href="">
+                            Read More
+                        </a>
                     </div>
                 </div>
             </div>
-        </form>
-    </div>
-
+        </div>
+    </section>
 
     <!-- end about section -->
     <!-- footer section -->
@@ -485,13 +274,13 @@
     <!-- footer section -->
 
     <!-- jQery -->
-    <script src="../../public/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="public/assets/js/jquery-3.4.1.min.js"></script>
     <!-- popper js -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
     <!-- bootstrap js -->
-    <script src="../../public/assets/js/bootstrap.js"></script>
+    <script src="public/assets/js/bootstrap.js"></script>
     <!-- owl slider -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
     </script>
@@ -501,7 +290,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js">
     </script>
     <!-- custom js -->
-    <script src="../../public/assets/js/custom.js"></script>
+    <script src="public/assets/js/custom.js"></script>
     <!-- Google Map -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
     </script>

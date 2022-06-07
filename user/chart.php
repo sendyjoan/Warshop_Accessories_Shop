@@ -1,5 +1,5 @@
 <head>
-    <title>SLM | Chart</title>
+    <title>SLM | Keranjang</title>
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" />
@@ -131,7 +131,7 @@
                             <div class="flex justify-between items-center mt-6 pt-6 border-t">
                                 <div class="flex items-center">
                                     <i class="fa fa-arrow-left text-sm pr-2"></i>
-                                    <a class="text-md  font-medium text-gray-800" href="product.php">Continue
+                                    <a class="text-md  font-medium text-gray-800" href="../product/">Continue
                                         Shopping</a>
                                 </div>
 

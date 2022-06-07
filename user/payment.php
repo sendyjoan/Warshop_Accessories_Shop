@@ -1,5 +1,5 @@
 <head>
-    <title>SLM | {{ $title }}</title>
+    <title>SLM | Pembayaran</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="shortcut icon" href="../../public/assets/images/favicon.png" type="">
-    <link rel="stylesheet" href="../../public/assets/css/app.css" type="">
+    <link rel="shortcut icon" href="../public/assets/images/favicon.png" type="">
+    <link rel="stylesheet" href="../public/assets/css/app.css" type="">
 </head>
 <div class="card mt-50 mb-50 p-5 bg-gray-800 rounded overflow-visible">
     <span>
