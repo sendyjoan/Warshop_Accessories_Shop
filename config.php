@@ -13,6 +13,12 @@ $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $d
 if (!$mysqli) {
     die("Koneksi gagal: " . mysqli_connect_error());
 }
-// mysqli_close($mysqli);
+
+//function delete product
+function deleteproduct($id) {
+	global $mysqli;
+	mysqli_query($mysqli, "DELETE FROM products WHERE idproduct = $id");
+	return mysqli_affected_rows($mysqli);
+}
  
 ?>
