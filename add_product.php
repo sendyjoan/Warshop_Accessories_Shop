@@ -4,6 +4,7 @@ require 'config.php';
 // cek apakah tombol submit sudah ditekan atau belum
 if( isset($_POST["submit"]) ) {
 	
+    // var_dump($_POST);
 	// cek apakah data berhasil di tambahkan atau tidak
 	if( addproduct($_POST) > 0 ) {
 		echo "
@@ -43,7 +44,7 @@ if( isset($_POST["submit"]) ) {
 				<input type="text" name="ringkasan" id="ringkasan">
 			</li>
 			<li>
-				<label for="deskripsi">Deskrisi :</label>
+				<label for="deskripsi">Deskripsi :</label>
 				<input type="text" name="deskripsi" id="deskripsi">
 			</li>
 			<li>
@@ -57,8 +58,8 @@ if( isset($_POST["submit"]) ) {
             <li>
                 <label for="category">Pilih Kategori :</label>
                 <select id="category" name="category">
-                <option value="1">Laki-laki</option>
-                <option value="2">Perempuan</option>
+                <option value= 1 >Laki-laki</option>
+                <option value= 2 >Perempuan</option>
                 </select>
             </li>
 			<li>
