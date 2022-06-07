@@ -21,4 +21,29 @@ function deleteproduct($id) {
 	return mysqli_affected_rows($mysqli);
 }
  
+function addproduct($data){
+	global $conn;
+
+	$namabarang = htmlspecialchars($data["namabarang"]);
+	$ringkasan = htmlspecialchars($data["ringkasan"]);
+	$deskripsi = htmlspecialchars($data["deskripsi"]);
+	$harga = htmlspecialchars($data["harga"]);
+	$stock = htmlspecialchars($data["stock"]);
+	$categori = htmlspecialchars($data["category"]);
+	$date = date("d/m/Y h:i:s");
+
+	// upload gambar
+	$gambar = upload();
+	if( $gambar ) {
+		return false;
+	}
+
+	$query = "INSERT INTO products
+				VALUES
+			  ('', '$namabarang', '$ringkasan', '$deskripsi', '$harga', '$stock', '$categori', '$date', '$date')
+			";
+	mysqli_query($conn, $query);
+
+	return mysqli_affected_rows($conn);
+}
 ?>
