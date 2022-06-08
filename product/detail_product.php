@@ -1,11 +1,6 @@
-<?php
-// Create database connection using config file
-include_once("config.php");
-// Fetch all users data from database
- $result = mysqli_query($mysqli, "SELECT * FROM products ORDER BY idproduct ASC");
-?>
 <!DOCTYPE html>
 <html>
+
 
 <head>
     <!-- Basic -->
@@ -17,12 +12,12 @@ include_once("config.php");
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="shortcut icon" href="public/assets/images/favicon.png" type="">
+    <link rel="shortcut icon" href="../public/assets/images/favicon.png" type="">
 
-    <title> SLM | Produk</title>
+    <title> SLM | Detail Produk</title>
 
     <!-- bootstrap core css -->
-    <link rel="stylesheet" type="text/css" href="public/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../public/assets/css/bootstrap.css" />
 
     <!--owl slider stylesheet -->
     <link rel="stylesheet" type="text/css"
@@ -33,12 +28,12 @@ include_once("config.php");
         integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ=="
         crossorigin="anonymous" />
     <!-- font awesome style -->
-    <link href="public/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../public/assets/css/font-awesome.min.css" rel="stylesheet" />
 
     <!-- Custom styles for this template -->
-    <link href="public/assets/css/style.css" rel="stylesheet" />
+    <link href="../public/assets/css/style.css" rel="stylesheet" />
     <!-- responsive style -->
-    <link href="public/assets/css/responsive.css" rel="stylesheet" />
+    <link href="../public/assets/css/responsive.css" rel="stylesheet" />
 
 
 </head>
@@ -47,7 +42,7 @@ include_once("config.php");
 
     <div class="hero_area">
         <div class="bg-box">
-            <img src="public/assets/images/hero-bg.jpg" alt="">
+            <img src="../public/assets/images/hero-bg.jpg" alt="">
         </div>
         <!-- header section strats -->
         <header class="header_section">
@@ -67,20 +62,20 @@ include_once("config.php");
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav  mx-auto ">
                             <li class="nav-item ">
-                                <a class="nav-link" href="index.php">Home</a>
+                                <a class="nav-link" href="../user/">Home</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="product.php">Produk</a>
+                                <a class="nav-link" href="index.php">Produk</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="about.php">Tentang</a>
+                                <a class="nav-link" href="../user/about.php">Tentang</a>
                             </li>
                         </ul>
                         <div class="user_option">
-                            <a href="auth/login.php" class="user_link">
+                            <a href="../user/profile/" class="user_link">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
-                            <a class="cart_link" href="auth/login.php">
+                            <a class="cart_link" href="../user/chart.php">
                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;"
@@ -142,9 +137,6 @@ include_once("config.php");
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                 </button>
                             </form>
-                            <a href="auth/login.php" class="order_online">
-                                Masuk
-                            </a>
                         </div>
                     </div>
                 </nav>
@@ -155,117 +147,50 @@ include_once("config.php");
     </div>
 
     <!-- food section -->
-
-    <section class="food_section layout_padding">
+    <section class="food_section layout_padding ">
         <div class="container">
-            <div class="heading_container heading_center">
-                <h2>
-                    Our Menu
-                </h2>
-            </div>
-
-            <ul class="filters_menu">
-                <li class="active" data-filter="*">All</li>
-                <li data-filter=".burger">Burger</li>
-                <li data-filter=".pizza">Pizza</li>
-                <li data-filter=".pasta">Pasta</li>
-                <li data-filter=".fries">Fries</li>
-
-            </ul>
-            <div class="filters-content">
-                <div class="row grid">
-                    <?php  
-                        while($user_data = mysqli_fetch_array($result)) {         
-                    ?>
-                    <div class="col-sm-4 col-lg-3 all pizza">
-                        <div class="box">
-                            <div>
-                                <div class="img-box">
-                                    <img src="<?php $user_data['gambar'] ?>" alt="">
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class=" col-lg-12 grid-margin stretch-card">
+                            <div class="card" style="background-color: #212529;">
+                                <div class=" card-header">
+                                    <a style="text-decoration: none;" class="text-white" href="index.php">Product / </a>
+                                    <a style="text-decoration: none;" class="text-warning font-weight-bold"
+                                        href="detail.php">Detail
+                                        Product</a>
                                 </div>
-                                <div class="detail-box">
-                                    <h5>
-                                        <?php echo $user_data['namabarang'] ?>
-                                    </h5>
-                                    <p>
-                                        <?php echo $user_data['ringkasan'] ?>
-                                    </p>
-                                    <div class="options">
-                                        <h6>
-                                            Rp.<?php echo $user_data['harga'] ?>,-
-                                        </h6>
-                                        <a href="">
-                                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                viewBox="0 0 456.029 456.029"
-                                                style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                                                <g>
-                                                    <g>
-                                                        <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                                                    </g>
-                                                </g>
-                                                <g>
-                                                    <g>
-                                                        <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                                                    </g>
-                                                </g>
-                                                <g>
-                                                    <g>
-                                                        <path
-                                                            d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                                                    </g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                                <g>
-                                                </g>
-                                            </svg>
-                                        </a>
-                                    </div>
+                                <div class="card-body">
+                                    <table class="table table-striped text-white">
+                                        <tr>
+                                            <th>Product Id</th>
+                                            <td>f
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Name</th>
+                                            <td>Kacang</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Price</th>
+                                            <td>5555</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Stock</th>
+                                            <td>5555</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Picture</th>
+                                            <td><img width="100px" class="rounded" src="#">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <a class="btn btn-warning text-white mt-3" href="index.php">Kembali</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <?php
-                        }
-                    ?>
                 </div>
-            </div>
-            <div class="btn-box">
-                <a href="">
-                    View More
-                </a>
             </div>
         </div>
     </section>
@@ -309,7 +234,8 @@ include_once("config.php");
                             Feane
                         </a>
                         <p>
-                            Necessary, making this the first true generator on the Internet. It uses a dictionary of
+                            Necessary, making this the first true generator on the Internet. It uses a
+                            dictionary of
                             over 200 Latin words, combined with
                         </p>
                         <div class="footer_social">
@@ -356,52 +282,27 @@ include_once("config.php");
     <!-- footer section -->
 
     <!-- jQery -->
-    <script src="public/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="../public/assets/js/jquery-3.4.1.min.js"></script>
     <!-- popper js -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
     <!-- bootstrap js -->
-    <script src="public/assets/js/bootstrap.js"></script>
+    <script src="../public/assets/js/bootstrap.js"></script>
     <!-- owl slider -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
     </script>
     <!-- isotope js -->
     <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
     <!-- nice select -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js">
+    </script>
     <!-- custom js -->
-    <script src="public/assets/js/custom.js"></script>
+    <script src="../public/assets/js/custom.js"></script>
     <!-- Google Map -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
     </script>
     <!-- End Google Map -->
-    <h1>Product Page</h1>
-
-    <table width='80%' border=1>
-
-        <tr>
-            <th>Name</th>
-            <th>Summary</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Stock</th>
-            <th>Action</th>
-        </tr>
-        <?php  
-    while($user_data = mysqli_fetch_array($result)) {         
-        echo "<tr>";
-        echo "<td>".$user_data['namabarang']."</td>";
-        echo "<td>".$user_data['ringkasan']."</td>";
-        echo "<td>".$user_data['deskripsi']."</td>";
-        echo "<td>".$user_data['harga']."</td>";
-        echo "<td>".$user_data['stock']."</td>";
-        echo "<td><a href='detail_product.php?id=$user_data[idproduct]'>Detail</a> <br>
-         <a href='edit_product.php?id=$user_data[idproduct]'>Edit</a> <br> 
-         <a href='delete_product.php?id=$user_data[idproduct]'>Delete</a> </td>";
-    }
-    ?>
-    </table>
 
 </body>
 
