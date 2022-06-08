@@ -1,11 +1,11 @@
 Fitur yang dimiki website :
-    - Login
-    - Registrasi
+    - Login | BE Proses 
+    - Registrasi | BE Sudah | Tinggal Session
     - Show All Product | Back End Sudah
     - Show All Product (Searching Nama Product) | BE Tinggal searcing
     - Show All Product (Filter Kategori) | BE Tinggal Filtering
     - Show Detail Product | BE Sudah
     - Create Product Admin | BE Sudah
-    - Edit Product Admin | BE Proses
+    - Edit Product Admin | BE Sudah
     - Delete Product Admin | BE Sudah
     - Show User

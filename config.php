@@ -132,4 +132,37 @@ function ubah($data) {
 	$status = mysqli_affected_rows($mysqli);	
 	return $status;
 }
+
+function registrasi($data){
+	global $mysqli;
+
+	$email = $data["email"];
+    $role = $data["role"];
+    $name = $data["name"];
+    $gender = $data["gender"];
+    $address = $data["address"];
+    $tele = $data["telephone"];
+    $tgl = $data["tanggallahir"];
+    $tmp = $data["tempatlahir"];
+    $pass1 = $data["password1"];
+    $pass2 = $data["password2"];
+
+	$result = mysqli_query($mysqli, "SELECT * FROM users WHERE email = '$email'");
+    // var_dump($_POST); //Debug Regis
+    if (mysqli_fetch_assoc($result)) {
+	     echo "<script>
+		    alert('Email sudah terdaftar!')
+	        </script>";
+    }elseif( $pass1 !== $pass2 ){
+         echo "<script>
+			    alert('Password Tidak Sama')
+		       </script>";
+    } else {
+        $pass1 = password_hash($pass1, PASSWORD_DEFAULT);
+        mysqli_query($mysqli, "INSERT INTO users (name, email, gender_id, address, telephone, tanggallahir, tempatlahir, role_id, password) VALUES('$name', '$email', '$gender', '$address', '$tele', '$tgl', '$tmp', '$role', '$pass1')");
+        $affect = mysqli_affected_rows($mysqli);   
+
+		return $affect;
+    }
+}
 ?>
