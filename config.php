@@ -71,4 +71,65 @@ function addproduct($data){
 
 	return $status;
 }
+
+function ubah($data) {
+	global $mysqli;
+
+	$id = $data["idproduct"];
+	$namabarang = htmlspecialchars($data["namabarang"]);
+	$ringkasan = htmlspecialchars($_POST["ringkasan"]);
+	$deskripsi = htmlspecialchars($_POST["deskripsi"]);
+	$harga = $_POST["harga"];
+	$harga = (int)$harga;
+	$stock = $_POST["stock"];
+	$stock = (int)$stock;
+	$categori = $_POST["category"];
+	$categori = (int)$categori;
+	$gambarLama = htmlspecialchars($data["gambarLama"]);
+	$gambar = null;
+	
+	// cek apakah user pilih gambar baru atau tidak
+	if( $_FILES['gambar']['error'] === 4 ) {
+		$gambar = $gambarLama;
+	} else {
+		// Gambar 
+			$namaFile = $_FILES['gambar']['name'];
+			$tmpName = $_FILES['gambar']['tmp_name'];
+
+			// cek apakah yang diupload adalah gambar
+			$ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+			$ekstensiGambar = explode('.', $namaFile);
+			$ekstensiGambar = strtolower(end($ekstensiGambar));
+			if( !in_array($ekstensiGambar, $ekstensiGambarValid) ) {
+				echo "<script>
+						alert('yang anda upload bukan gambar!');
+					</script>";
+				return false;
+			}
+
+		$namaFileBaru = uniqid();
+		$namaFileBaru .= '.';
+		$namaFileBaru .= $ekstensiGambar;
+
+		move_uploaded_file($tmpName, 'product_img/' . $namaFileBaru);
+		$gambar = $namaFileBaru;
+	}
+	
+
+	$query = "UPDATE products SET
+				namabarang = '$namabarang',
+				ringkasan = '$ringkasan',
+				deskripsi = '$deskripsi',
+				harga = '$harga',
+				stock = '$stock',
+				category_id = '$categori',
+				gambar = '$gambar'
+			  WHERE idproduct = $id
+			";
+
+	mysqli_query($mysqli, $query);
+
+	$status = mysqli_affected_rows($mysqli);	
+	return $status;
+}
 ?>
