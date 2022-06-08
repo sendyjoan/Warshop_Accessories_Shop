@@ -20,34 +20,20 @@ function deleteproduct($id) {
 	mysqli_query($mysqli, "DELETE FROM products WHERE idproduct = $id");
 	return mysqli_affected_rows($mysqli);
 }
- 
+
 function addproduct($data){
 	global $mysqli;
-
-	$namabarang = htmlspecialchars($data["namabarang"]);
-	$ringkasan = htmlspecialchars($data["ringkasan"]);
-	$deskripsi = htmlspecialchars($data["deskripsi"]);
-	$harga = $data["harga"];
+	$namabarang = htmlspecialchars($_POST["namabarang"]);
+	$ringkasan = htmlspecialchars($_POST["ringkasan"]);
+	$deskripsi = htmlspecialchars($_POST["deskripsi"]);
+	$harga = $_POST["harga"];
 	$harga = (int)$harga;
-	$stock = $data["stock"];
+	$stock = $_POST["stock"];
 	$stock = (int)$stock;
-	$categori = $data["category"];
+	$categori = $_POST["category"];
 	$categori = (int)$categori;
 
-	// upload gambar
-	$gambar = upload();
-	
-	if( $gambar ) {
-		return false;
-	}
-
-	mysqli_query($mysqli, "INSERT INTO products VALUES (null, $namabarang, $ringkasan, $deskripsi, $harga, $stock, $categori, $gambar)");
-	
-	return mysqli_affected_rows($mysqli);
-}
-
-function upload() {
-
+	// Gambar 
 	$namaFile = $_FILES['gambar']['name'];
 	$ukuranFile = $_FILES['gambar']['size'];
 	$error = $_FILES['gambar']['error'];
@@ -72,22 +58,17 @@ function upload() {
 		return false;
 	}
 
-	// // cek jika ukurannya terlalu besar
-	// if( $ukuranFile > 1000000 ) {
-	// 	echo "<script>
-	// 			alert('ukuran gambar terlalu besar!');
-	// 		  </script>";
-	// 	return false;
-	// }
-
-	// lolos pengecekan, gambar siap diupload
-	// generate nama gambar baru
 	$namaFileBaru = uniqid();
 	$namaFileBaru .= '.';
 	$namaFileBaru .= $ekstensiGambar;
 
 	move_uploaded_file($tmpName, 'product_img/' . $namaFileBaru);
 
-	return $namaFileBaru;
+	// var_dump($namaFileBaru);
+
+	mysqli_query($mysqli, "INSERT INTO products (namabarang, ringkasan, deskripsi, harga, stock, category_id, gambar) VALUES ('$namabarang', '$ringkasan', '$deskripsi', '$harga', '$stock', '$categori', '$namaFileBaru')");
+	$status = mysqli_affected_rows($mysqli);
+
+	return $status;
 }
 ?>

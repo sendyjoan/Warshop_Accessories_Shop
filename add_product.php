@@ -1,28 +1,28 @@
 <?php
-require 'config.php';
+include_once("config.php");
 
 // cek apakah tombol submit sudah ditekan atau belum
 if( isset($_POST["submit"]) ) {
 	
     // var_dump($_POST);
+	// var_dump($_FILES);
+	
 	// cek apakah data berhasil di tambahkan atau tidak
 	if( addproduct($_POST) > 0 ) {
 		echo "
 			<script>
 				alert('data berhasil ditambahkan!');
-				document.location.href = 'index.php';
+				document.location.href = 'product.php';
 			</script>
 		";
 	} else {
 		echo "
 			<script>
 				alert('data gagal ditambahkan!');
-				document.location.href = 'index.php';
+				document.location.href = 'add_product.php';
 			</script>
 		";
 	}
-
-
 }
 ?>
 <!DOCTYPE html>
@@ -58,8 +58,13 @@ if( isset($_POST["submit"]) ) {
             <li>
                 <label for="category">Pilih Kategori :</label>
                 <select id="category" name="category">
-                <option value= 1 >Laki-laki</option>
-                <option value= 2 >Perempuan</option>
+					<?php
+						$kategori = mysqli_query($mysqli, "SELECT * FROM categories ORDER BY idkategori ASC");
+						while ($data = mysqli_fetch_array($kategori)) {
+							echo "<option value = ".$data['idkategori'].">".$data['kategori']."</option>";
+						}
+						
+					?>
                 </select>
             </li>
 			<li>
