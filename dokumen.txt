@@ -1,5 +1,5 @@
 Fitur yang dimiki website :
-    - Login | BE Proses 
+    - Login | BE Sudah | Tinggal SESION
     - Registrasi | BE Sudah | Tinggal Session
     - Show All Product | Back End Sudah
     - Show All Product (Searching Nama Product) | BE Tinggal searcing
