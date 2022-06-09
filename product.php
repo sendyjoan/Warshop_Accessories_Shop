@@ -160,18 +160,18 @@ include_once("config.php");
         <div class="container">
             <div class="heading_container heading_center">
                 <h2>
-                    Our Menu
+                    Our Product
                 </h2>
             </div>
 
-            <ul class="filters_menu">
+            <!-- <ul class="filters_menu">
                 <li class="active" data-filter="*">All</li>
                 <li data-filter=".burger">Burger</li>
                 <li data-filter=".pizza">Pizza</li>
                 <li data-filter=".pasta">Pasta</li>
                 <li data-filter=".fries">Fries</li>
 
-            </ul>
+            </ul> -->
             <div class="filters-content">
                 <div class="row grid">
                     <?php  
@@ -181,7 +181,7 @@ include_once("config.php");
                         <div class="box">
                             <div>
                                 <div class="img-box">
-                                    <img src="<?php $user_data['gambar'] ?>" alt="">
+                                    <img src="public/assets/product_img/<?php echo $user_data['gambar'] ?>" alt="">
                                 </div>
                                 <div class="detail-box">
                                     <h5>
@@ -376,32 +376,6 @@ include_once("config.php");
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
     </script>
     <!-- End Google Map -->
-    <h1>Product Page</h1>
-
-    <table width='80%' border=1>
-
-        <tr>
-            <th>Name</th>
-            <th>Summary</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Stock</th>
-            <th>Action</th>
-        </tr>
-        <?php  
-    while($user_data = mysqli_fetch_array($result)) {         
-        echo "<tr>";
-        echo "<td>".$user_data['namabarang']."</td>";
-        echo "<td>".$user_data['ringkasan']."</td>";
-        echo "<td>".$user_data['deskripsi']."</td>";
-        echo "<td>".$user_data['harga']."</td>";
-        echo "<td>".$user_data['stock']."</td>";
-        echo "<td><a href='detail_product.php?id=$user_data[idproduct]'>Detail</a> <br>
-         <a href='edit_product.php?id=$user_data[idproduct]'>Edit</a> <br> 
-         <a href='delete_product.php?id=$user_data[idproduct]'>Delete</a> </td>";
-    }
-    ?>
-    </table>
 
 </body>
 
