@@ -171,4 +171,77 @@ function deleteuser($id) {
 	mysqli_query($mysqli, "DELETE FROM users WHERE id = $id");
 	return mysqli_affected_rows($mysqli);
 }
+
+function editprofile($data){
+	global $mysqli;
+
+	$id = $data["id"];
+	$oldpass = $data["password"];
+	$role = $data["role"];
+	$oldphoto = $data["oldphoto"];
+	$email = $data["email"];
+	$name = $data["name"];
+    $gender = $data["gender"];
+    $address = $data["address"];
+    $tele = $data["telephone"];
+    $tgl = $data["tanggallahir"];
+    $tmp = $data["tempatlahir"];
+	$newpass = $data["password1"];
+	$newpass2 = $data["password2"];
+
+	if ($_FILES["photo"]["error"] === 4) {
+		$photo = $oldphoto;
+	}else{
+		// Gambar 
+		$namaFile = $_FILES['photo']['name'];
+		$tmpName = $_FILES['photo']['tmp_name'];
+
+		// cek apakah yang diupload adalah gambar
+		$ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+		$ekstensiGambar = explode('.', $namaFile);
+		$ekstensiGambar = strtolower(end($ekstensiGambar));
+		if( !in_array($ekstensiGambar, $ekstensiGambarValid) ) {
+			echo "<script>
+					alert('yang anda upload bukan gambar!');
+				</script>";
+			return false;
+		}
+
+		$namaFileBaru = uniqid();
+		$namaFileBaru .= '.';
+		$namaFileBaru .= $ekstensiGambar;
+
+		move_uploaded_file($tmpName, 'user_img/' . $namaFileBaru);
+		$photo = $namaFileBaru;
+	}
+
+	if(isset($data["password1"])){
+		if ( $newpass !== $newpass2) {
+			echo "<script>
+					alert('Password Tidak Sama <br> Password Gagal Diperbaharui')
+				   </script>";
+			$newpass = $oldpass;
+		}
+	}
+	
+	if (!isset($pass1)) {
+		$newpass = $oldpass;
+	}else{
+		$query = "UPDATE users SET
+			name = '$name',
+			email = '$email',
+			gender_id = '$gender',
+			address = '$address',
+			telephone = '$tele',
+			tanggallahir = '$tgl',
+			tempatlahir = '$tmp',
+			picture = '$photo',
+			role_id = '$role',
+			password = '$newpass'
+			WHERE id = '$id'
+		";
+		$hasil = mysqli_query($mysqli, $query);
+		$hasil = mysqli_affected_rows($hasil);
+	}
+}
 ?>

@@ -10,6 +10,27 @@ $result = mysqli_fetch_array($result);
 
 // var_dump($result);
 
+if ( isset($_POST["editprofile"])) {
+    var_dump($_POST);
+
+    // if( editprofile($_POST) > 0 ) {
+	// 	echo "
+	// 		<script>
+	// 			alert('Profile berhasil diubah!');
+	// 			document.location.href = 'showuser.php';
+	// 		</script>
+	// 	";
+	// } else {
+	// 	echo "
+	// 		<script>
+	// 			alert('Profile gagal diubah!');
+	// 			document.location.href = 'showuser.php';
+	// 		</script>
+	// 	";
+	// }
+
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,13 +42,15 @@ $result = mysqli_fetch_array($result);
 </head>
 <body>
     <h1>Edit</h1>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <input type="hidden" name="role" id="role" value="1">
+        <input type="hidden" name="id" id="id" value="<?php echo $result['id'] ?>">
         <input type="hidden" name="password" id="password" value="<?php echo $result['password'] ?>">
+        <input type="hidden" name="oldphoto" id="oldphoto" value="<?php echo $result['picture'] ?>">
         <ul>
             <li>
                 <label for="email">Email : </label>
-                <input type="email" name="email" id="email" value="<?php echo $result['email'] ?>">
+                <input type="email" name="email" id="email" disabled value="<?php echo $result['email'] ?>">
             </li>
             <li>
                 <label for="name">Nama Lengkap : </label>
@@ -69,6 +92,10 @@ $result = mysqli_fetch_array($result);
                 <option value="2" selected>Wanita</option>
                     <?php }?>
                 </select>
+            </li>
+            <li>
+                <label for="Picture"></label>
+                <input type="file" name="photo" id="photo">
             </li>
             <li>
 				<button type="submit" name="editprofile">Edit Profile</button>
