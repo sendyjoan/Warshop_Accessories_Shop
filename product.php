@@ -155,8 +155,7 @@ include_once("config.php");
         <div class="container">
             <div class="heading_container heading_center">
                 <h2>
-                    Produk Kami
-                </h2>
+                    Produk Kami </h2>
             </div>
 
             <ul class="filters_menu">
