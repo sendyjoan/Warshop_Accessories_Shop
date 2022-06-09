@@ -42,7 +42,8 @@
             echo "<td><a href='detail_user.php?id=$data[id]'>Detail</a> <br>
             <a href='edit_profile.php?id=$data[id]'>Edit Profile</a> <br> 
             <a href='delete_user.php?id=$data[id]'>Delete</a> <br> 
-            <a href='edit_picture.php?id=$data[id]'>Edit Picture</a> </td></td> ";
+            <a href='edit_picture.php?id=$data[id]'>Edit Picture</a> <br> 
+            <a href='edit_password.php?id=$data[id]'>Edit Password</a> </td> ";
         }
         ?>
     </table>

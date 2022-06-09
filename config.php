@@ -237,4 +237,22 @@ function editpict($data){
 									WHERE id = '$id'");
 	return mysqli_affected_rows($mysqli);
 }
+
+function editpassword($data){
+	global $mysqli;
+
+	$newpass = $_POST["newpassword1"];
+	$newpass2 = $_POST["newpassword2"];
+	$oldpass = $_POST["oldpassword"];
+	$id = $_POST["id"];
+
+	if ($newpass !== $newpass2) {
+		$newpass = $oldpass;
+	}else{
+		$newpass = password_hash($newpass, PASSWORD_DEFAULT);
+	}
+	$query = mysqli_query($mysqli, "UPDATE users SET password = '$newpass' WHERE id = '$id'");
+	
+	return mysqli_affected_rows($mysqli);
+}
 ?>

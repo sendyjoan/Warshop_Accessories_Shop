@@ -9,5 +9,5 @@ Fitur yang dimiki website :
     - Edit Product Admin | BE Sudah
     - Delete Product Admin | BE Sudah
     - Show ALL User | BE Sudah 
-    - Edit User 
-    - Hapus User
+    - Edit User | BE SUDAH
+    - Hapus User | BE SUDAH
