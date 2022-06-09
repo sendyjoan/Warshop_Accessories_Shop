@@ -1,3 +1,40 @@
+<?php
+include_once("../../config.php");
+
+// ambil data di URL
+$id = $_GET["id"];
+
+// query data mahasiswa berdasarkan id
+$product = mysqli_query($mysqli, "SELECT * FROM products WHERE idproduct = $id");
+$product = mysqli_fetch_array($product);
+
+var_dump($product);
+
+if( isset($_POST["ubah"]) ) {
+	
+	// cek apakah data berhasil diubah atau tidak
+    // var_dump($_POST);
+    // var_dump($_FILES);
+	if( ubah($_POST) > 0 ) {
+		echo "
+			<script>
+				alert('data berhasil diubah!');
+				document.location.href = 'index.php';
+			</script>
+		";
+	} else {
+		echo "
+			<script>
+				alert('data gagal diubah!');
+				document.location.href = '#';
+</script>
+";
+}
+
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +42,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>SLM Admin</title>
+    <title>Warshop Admin</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../public/assets/adminAssets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../public/assets/adminAssets/vendors/css/vendor.bundle.base.css">
@@ -82,7 +119,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="index.php">
                             <span class="menu-title">Products Table</span>
                             <i class="mdi mdi-table-large menu-icon"></i>
                         </a>
@@ -101,28 +138,55 @@
                                         Product</a>
                                 </div>
                                 <div class="card-body">
-                                    <form method="post" action="#" id="myForm" enctype="multipart/form-data">
+                                    <form method="post" action="" id="myForm" enctype="multipart/form-data">
                                         <div class="form-group">
-                                            <label for="name">Name</label>
-                                            <input type="text" name="name" class="form-control" id="name" value="nama"
-                                                aria-describedby="name">
+                                            <label for="namabarang">Nama Barang</label>
+                                            <input type="text" name="namabarang" class="form-control" id="namabarang"
+                                                value="<?= $product["namabarang"] ?>" aria-describedby="namabarang">
                                         </div>
                                         <div class="form-group">
-                                            <label for="price">Price</label>
-                                            <input type="number" name="price" class="form-control" id="price"
-                                                value="harga" aria-describedby="price">
+                                            <label for="ringkasan">Ringkasan</label>
+                                            <input type="text" name="ringkasan" class="form-control" id="ringkasan"
+                                                value="<?= $product['ringkasan'] ?>" aria-describedby="ringkasan">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="deskripsi">Deskripsi</label>
+                                            <input type="text" name="deskripsi" class="form-control" id="deskripsi"
+                                                value="<?= $product['deskripsi'] ?>" aria-describedby="deskripsi">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="harga">Harga</label>
+                                            <input type="number" name="harga" class="form-control" id="harga"
+                                                value="<?= $product['harga'] ?>" aria-describedby="harga">
                                         </div>
                                         <div class="form-group">
                                             <label for="stock">Stock</label>
                                             <input type="number" name="stock" class="form-control" id="stock"
-                                                value="stok" aria-describedby="price">
+                                                value="<?= $product['stock'] ?>" aria-describedby="stock">
                                         </div>
                                         <div class="form-group">
-                                            <label for="image">Picture</label>
-                                            <input type="file" class="form-control" name="image" value="gambar"></br>
-                                            <img width="150px" src="#">
+                                            <label for="category">Kategori</label>
+                                            <select id="category" name="category" class="form-control">
+                                                <?php
+                                                    $kategori = mysqli_query($mysqli, "SELECT * FROM categories ORDER BY idkategori ASC");
+                                                    while ($data = mysqli_fetch_array($kategori)) {
+                                                        if ($data['idkategori'] == $product['category_id']) {
+                                                            echo "<option selected value = ".$data['idkategori'].">".$data['kategori']."</option>";
+                                                        }else{
+                                                            echo "<option value = ".$data['idkategori'].">".$data['kategori']."</option>";
+                                                        }
+                                                    }
+                                                ?>
+                                            </select>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <div class=" form-group">
+                                            <label for="gambar">Picture</label>
+                                            <input type="file" class="form-control" name="gambar" value="gambar"></br>
+                                            <img width="150px"
+                                                src="../../public/assets/product_img/<?php echo $product['gambar']?>">
+                                        </div>
+                                        <button type="submit" name="ubah" id="ubah"
+                                            class="btn btn-primary">Ubah</button>
                                     </form>
                                 </div>
                             </div>
@@ -134,7 +198,7 @@
         <!-- page-body-wrapper ends -->
         <footer class="footer">
             <div class="container-fluid d-flex justify-content-between">
-                <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright ©SLM
+                <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright ©Warshop
                     2022</span>
                 <span class="float-none float-sm-end mt-1 mt-sm-0 text-end">Feel free using this website!</span>
             </div>

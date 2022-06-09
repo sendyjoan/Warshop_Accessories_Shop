@@ -13,7 +13,7 @@
     <meta name="author" content="" />
     <link rel="shortcut icon" href="public/assets/images/favicon.png" type="">
 
-    <title> SLM | Tentang</title>
+    <title> Warshop | Tentang</title>
 
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="public/assets/css/bootstrap.css" />
@@ -49,7 +49,7 @@
                 <nav class="navbar navbar-expand-lg custom_nav-container ">
                     <a class="navbar-brand" href="index.php">
                         <span>
-                            SLM
+                            Warshop
                         </span>
                     </a>
 
@@ -78,7 +78,7 @@
                             <a class="cart_link" href="auth/login.php">
                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                    viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;"
+                                    viewBox="0 0 556.029 556.029" style="enable-background:new 0 0 556.029 556.029;"
                                     xml:space="preserve">
                                     <g>
                                         <g>
@@ -156,7 +156,7 @@
                     <div class="detail-box">
                         <div class="heading_container">
                             <h2>
-                                Kami adalah SLM
+                                Kami adalah Warshop
                             </h2>
                         </div>
                         <p>
@@ -208,7 +208,7 @@
                 <div class="col-md-4 footer-col">
                     <div class="footer_detail">
                         <a href="" class="footer-logo">
-                            SLM
+                            Warshop
                         </a>
                         <p>
                             UMKM Kerajinan Tas dan Dompet Mojokerto merupakan usaha menengah yang bergerak pada sektor

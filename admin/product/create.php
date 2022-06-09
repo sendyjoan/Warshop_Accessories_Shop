@@ -32,7 +32,7 @@ if( isset($_POST["submit"]) ) {
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>SLM Admin</title>
+    <title>Warshop Admin</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../public/assets/adminAssets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../public/assets/adminAssets/vendors/css/vendor.bundle.base.css">
@@ -179,7 +179,7 @@ if( isset($_POST["submit"]) ) {
     <!-- page-body-wrapper ends -->
     <footer class="footer">
         <div class="container-fluid d-flex justify-content-between">
-            <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright ©SLM
+            <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright ©Warshop
                 2022</span>
             <span class="float-none float-sm-end mt-1 mt-sm-0 text-end">Feel free using this website!</span>
         </div>

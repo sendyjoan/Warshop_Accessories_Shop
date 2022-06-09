@@ -1,3 +1,9 @@
+<?php
+// Create database connection using config file
+include_once("../config.php");
+// Fetch all users data from database
+ $result = mysqli_query($mysqli, "SELECT * FROM products ORDER BY idproduct ASC");
+?>
 <!DOCTYPE html>
 <html>
 
@@ -13,7 +19,7 @@
     <meta name="author" content="" />
     <link rel="shortcut icon" href="../public/assets/images/favicon.png" type="">
 
-    <title> SLM | Produk</title>
+    <title> Warshop | Produk</title>
 
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="../public/assets/css/bootstrap.css" />
@@ -49,7 +55,7 @@
                 <nav class="navbar navbar-expand-lg custom_nav-container ">
                     <a class="navbar-brand" href="index.php">
                         <span>
-                            SLM
+                            Warshop
                         </span>
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -281,7 +287,7 @@
                 <div class="col-md-4 footer-col">
                     <div class="footer_detail">
                         <a href="" class="footer-logo">
-                            SLM
+                            Warshop
                         </a>
                         <p>
                             UMKM Kerajinan Tas dan Dompet Mojokerto merupakan usaha menengah yang bergerak pada sektor
