@@ -1,15 +1,18 @@
 <?php
     include_once("config.php");
 
-    if( registrasi($_POST) > 0){
-        echo "<script>
-            alert('Selamat anda telah terdaftar! Silahkan melakukan Login!')
-            document.location.href = 'belogin.php';
-            </script>";
-    }else{
-        echo "<script>
-            alert('Proses Registrasi Gagal!')
-            </script>";
+    if ( isset($_POST["registrasi"])) {
+        // var_dump($_POST);
+        if( registrasi($_POST) > 0){
+            echo "<script>
+                alert('Selamat anda telah terdaftar! Silahkan melakukan Login!')
+                document.location.href = 'belogin.php';
+                </script>";
+        }else{
+            echo "<script>
+                alert('Proses Registrasi Gagal!')
+                </script>";
+        }
     }
 ?>
 <!DOCTYPE html>

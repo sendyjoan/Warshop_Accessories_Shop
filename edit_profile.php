@@ -11,23 +11,23 @@ $result = mysqli_fetch_array($result);
 // var_dump($result);
 
 if ( isset($_POST["editprofile"])) {
-    var_dump($_POST);
+    // var_dump($_POST);
 
-    // if( editprofile($_POST) > 0 ) {
-	// 	echo "
-	// 		<script>
-	// 			alert('Profile berhasil diubah!');
-	// 			document.location.href = 'showuser.php';
-	// 		</script>
-	// 	";
-	// } else {
-	// 	echo "
-	// 		<script>
-	// 			alert('Profile gagal diubah!');
-	// 			document.location.href = 'showuser.php';
-	// 		</script>
-	// 	";
-	// }
+    if( editprofile($_POST) > 0 ) {
+		echo "
+			<script>
+				alert('Profile berhasil diubah!');
+				document.location.href = 'showuser.php';
+			</script>
+		";
+	} else {
+		echo "
+			<script>
+				alert('Profile gagal diubah!');
+				document.location.href = 'showuser.php';
+			</script>
+		";
+	}
 
 }
 
@@ -45,12 +45,11 @@ if ( isset($_POST["editprofile"])) {
     <form action="" method="post" enctype="multipart/form-data">
         <input type="hidden" name="role" id="role" value="1">
         <input type="hidden" name="id" id="id" value="<?php echo $result['id'] ?>">
-        <input type="hidden" name="password" id="password" value="<?php echo $result['password'] ?>">
-        <input type="hidden" name="oldphoto" id="oldphoto" value="<?php echo $result['picture'] ?>">
+        <input type="hidden" name="email" value="<?php echo $result['email'] ?>">
         <ul>
             <li>
                 <label for="email">Email : </label>
-                <input type="email" name="email" id="email" disabled value="<?php echo $result['email'] ?>">
+                <input type="email" name="" id="" disabled value="<?php echo $result['email'] ?>">
             </li>
             <li>
                 <label for="name">Nama Lengkap : </label>
@@ -74,14 +73,6 @@ if ( isset($_POST["editprofile"])) {
                 <input type="text" name="tempatlahir" id="tempatlahir" value="<?php echo $result['tempatlahir'] ?>">
             </li>
             <li>
-                <label for="password">Password : </label>
-                <input type="password" name="password1" id="password1">
-            </li>
-            <li>
-                <label for="password">Konfirmasi Password : </label>
-                <input type="password" name="password2" id="password2">
-            </li>
-            <li>
                 <label for="gender">Jenis Kelamin :</label>
                 <select id="gender" name="gender">
                     <?php if($result["gender_id"] == 1 ){ ?>
@@ -92,10 +83,6 @@ if ( isset($_POST["editprofile"])) {
                 <option value="2" selected>Wanita</option>
                     <?php }?>
                 </select>
-            </li>
-            <li>
-                <label for="Picture"></label>
-                <input type="file" name="photo" id="photo">
             </li>
             <li>
 				<button type="submit" name="editprofile">Edit Profile</button>

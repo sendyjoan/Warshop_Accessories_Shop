@@ -13,7 +13,7 @@
 </head>
 <body>
     <h1>Show User</h1>
-    <table width='80%' border=1>
+    <table width='100%' border=1>
 
         <tr>
             <th>Nama</th>
@@ -40,8 +40,9 @@
             echo "<td>".$data['picture']."</td>";
             echo "<td>".$data['role']."</td>";
             echo "<td><a href='detail_user.php?id=$data[id]'>Detail</a> <br>
-            <a href='edit_user.php?id=$data[id]'>Edit</a> <br> 
-            <a href='delete_user.php?id=$data[id]'>Delete</a> </td>";
+            <a href='edit_profile.php?id=$data[id]'>Edit Profile</a> <br> 
+            <a href='delete_user.php?id=$data[id]'>Delete</a> <br> 
+            <a href='edit_picture.php?id=$data[id]'>Edit Picture</a> </td></td> ";
         }
         ?>
     </table>
