@@ -40,8 +40,8 @@
             echo "<td>".$data['picture']."</td>";
             echo "<td>".$data['role']."</td>";
             echo "<td><a href='detail_user.php?id=$data[id]'>Detail</a> <br>
-            <a href='edit_product.php?id=$data[id]'>Edit</a> <br> 
-            <a href='delete_product.php?id=$data[id]'>Delete</a> </td>";
+            <a href='edit_user.php?id=$data[id]'>Edit</a> <br> 
+            <a href='delete_user.php?id=$data[id]'>Delete</a> </td>";
         }
         ?>
     </table>

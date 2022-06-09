@@ -165,4 +165,10 @@ function registrasi($data){
 		return $affect;
     }
 }
+
+function deleteuser($id) {
+	global $mysqli;
+	mysqli_query($mysqli, "DELETE FROM users WHERE id = $id");
+	return mysqli_affected_rows($mysqli);
+}
 ?>
