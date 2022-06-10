@@ -204,7 +204,7 @@ function createAdmin($data){
 	$namaFileBaru .= $ekstensiGambar;
 
 
-	move_uploaded_file($tmpName, 'public/assets/user_img/' . $namaFileBaru);
+	move_uploaded_file($tmpName, '../../public/assets/user_img/' . $namaFileBaru);
 
 	$result = mysqli_query($mysqli, "SELECT * FROM users WHERE email = '$email'");
     // var_dump($_POST); //Debug Regis
