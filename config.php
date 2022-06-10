@@ -137,10 +137,6 @@ function registrasi($data){
     $role = $data["role"];
     $name = $data["name"];
     $gender = $data["gender"];
-    $address = $data["address"];
-    $tele = $data["telephone"];
-    $tgl = $data["tanggallahir"];
-    $tmp = $data["tempatlahir"];
     $pass1 = $data["password1"];
     $pass2 = $data["password2"];
 
@@ -156,7 +152,7 @@ function registrasi($data){
 		       </script>";
     } else {
         $pass1 = password_hash($pass1, PASSWORD_DEFAULT);
-        mysqli_query($mysqli, "INSERT INTO users (name, email, gender_id, address, telephone, tanggallahir, tempatlahir, role_id, password) VALUES('$name', '$email', '$gender', '$address', '$tele', '$tgl', '$tmp', '$role', '$pass1')");
+        mysqli_query($mysqli, "INSERT INTO users (name, email, gender_id, role_id, password) VALUES('$name', '$email', '$gender', '$role', '$pass1')");
         $affect = mysqli_affected_rows($mysqli);   
 
 		return $affect;

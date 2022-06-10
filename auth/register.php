@@ -1,3 +1,31 @@
+<?php
+    include_once("../config.php");
+    session_start();
+    if (isset($_SESSION["email"])) {
+        if (isset($_SESSION["role"])) {
+            echo "<script>
+				document.location.href = '../admin/product';
+		       </script>";
+        }
+        echo "<script>
+            document.location.href = '../user';
+        </script>";
+    }
+
+    if ( isset($_POST["registrasi"])) {
+        // var_dump($_POST);
+        if( registrasi($_POST) > 0){
+            echo "<script>
+                alert('Selamat anda telah terdaftar! Silahkan melakukan Login!')
+                document.location.href = 'login.php';
+                </script>";
+        }else{
+            echo "<script>
+                alert('Proses Registrasi Gagal!')
+                </script>";
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,6 +63,7 @@
             <div class="wrap-login100">
                 <form class="regist100-form validate-form" style="background-color: #0c0c0c;" action="" method="post">
                     <input type="hidden" name="role" id="role" value="1">
+                    <input type="hidden" name="gender" id="gender" value="1">
                     <div align="right" style="margin-bottom: 15px;">
                         <a href="login.php">
                             <i class="fa fa-arrow-right text-sm pr-2 " style="color: #ffbe33">
@@ -46,21 +75,21 @@
                     </span>
 
                     <div class="wrap-regist100 validate-input" data-validate="Anda harus memasukkan nama Anda">
-                        <input class="input100" type="text" name="name" placeholder="Masukkan Nama">
+                        <input class="input100" type="text" name="name" placeholder="Masukkan Nama" required>
                     </div>
 
                     <div class="wrap-regist100 validate-input"
                         data-validate="Diperlukan alamat wmail yang valid: ex@abc.xyz">
-                        <input class="input100" type="text" name="email" placeholder="Masukkan Email">
+                        <input class="input100" type="email" name="email" placeholder="Masukkan Email" required>
                     </div>
 
 
                     <div class="wrap-regist100 validate-input" data-validate="Password tidak boleh kosong">
-                        <input class="input100" type="password" name="password1" placeholder="Masukkan Password">
+                        <input class="input100" type="password" name="password1" placeholder="Masukkan Password" required>
                     </div>
 
                     <div class="wrap-regist100 validate-input" data-validate="Masukkan konfirmasi password">
-                        <input class="input100" type="password" name="password2" placeholder="Masukkan Konfirmasi Password">
+                        <input class="input100" type="password" name="password2" placeholder="Masukkan Konfirmasi Password" required>
                     </div>
 
                     <div class="flex-sb-m w-full p-t-3 p-b-32">
