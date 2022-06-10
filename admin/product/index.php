@@ -52,7 +52,7 @@ include_once("../../config.php");
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                             <a class="dropdown-item" href="#">
-                                <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
+                                <i class="mdi mdi-logout me-2 text-primary"></i> Logout </a>
                         </div>
                     </li>
                 </ul>
@@ -81,21 +81,15 @@ include_once("../../config.php");
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span class="menu-title">Dashboard</span>
-                            <i class="mdi mdi-home menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="index.php">
-                            <span class="menu-title">Products Table</span>
+                            <span class="menu-title">Tabel Produk</span>
                             <i class="mdi mdi-table-large menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">
-                            <span class="menu-title">Products Table</span>
-                            <i class="mdi mdi-home menu-icon"></i>
+                        <a class="nav-link" href="../user/">
+                            <span class="menu-title">Tabel Pengguna</span>
+                            <i class="mdi mdi-table-large menu-icon"></i>
                         </a>
                     </li>
                 </ul>
@@ -103,14 +97,14 @@ include_once("../../config.php");
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="page-header">
-                        <h3 class="page-title"> Products Table </h3>
+                        <h3 class="page-title"> Tabel Produk </h3>
                     </div>
                     <div class="row">
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="float-right my-2 mb-4">
-                                        <a class="btn btn-success" href="create.php"> Input Product</a>
+                                        <a class="btn btn-success" href="create.php"> Tambah Produk</a>
                                     </div>
                                     <table class="table table-striped table-hover">
                                         <thead>
@@ -118,8 +112,8 @@ include_once("../../config.php");
                                                 <th>Picture</th>
                                                 <th>Nama</th>
                                                 <th>Harga</th>
-                                                <th>Stock</th>
-                                                <th>Action</th>
+                                                <th>Stok</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -135,11 +129,11 @@ include_once("../../config.php");
                                                 <td><?php echo $user_data['stock'] ?></td>
                                                 <td>
                                                     <a class="btn btn-info"
-                                                        href="detail.php?id='<?php echo $user_data['idproduct']?>'">Show</a>
+                                                        href="detail.php?id='<?php echo $user_data['idproduct']?>'">Detail</a>
                                                     <a class=" btn btn-primary"
                                                         href="edit.php?id='<?php echo $user_data['idproduct']?>'">Edit</a>
                                                     <a class="btn btn-danger"
-                                                        href="delete.php?id='<?php echo $user_data['idproduct'] ?>'">Delete</a>
+                                                        href="delete.php?id='<?php echo $user_data['idproduct'] ?>'">Hapus</a>
                                                 </td>
                                             </tr>
                                             <?php

@@ -1,38 +1,10 @@
 <?php
-include_once("../../config.php");
+    include_once("../../config.php");
 
-// ambil data di URL
-$id = $_GET["id"];
+    $id = $_GET['id'];
 
-// query data mahasiswa berdasarkan id
-$product = mysqli_query($mysqli, "SELECT * FROM products WHERE idproduct = $id");
-$product = mysqli_fetch_array($product);
-
-var_dump($product);
-
-if( isset($_POST["ubah"]) ) {
-	
-	// cek apakah data berhasil diubah atau tidak
-    // var_dump($_POST);
-    // var_dump($_FILES);
-	if( ubah($_POST) > 0 ) {
-		echo "
-			<script>
-				alert('data berhasil diubah!');
-				document.location.href = 'index.php';
-			</script>
-		";
-	} else {
-		echo "
-			<script>
-				alert('data gagal diubah!');
-				document.location.href = '#';
-</script>
-";
-}
-
-
-}
+    $result = mysqli_query($mysqli, "SELECT * FROM users INNER JOIN roles ON users.role_id = roles.idrole INNER JOIN genders ON users.gender_id = genders.idjeniskelamin;");
+    $result = mysqli_fetch_array($result);
 
 ?>
 <!DOCTYPE html>
@@ -113,74 +85,77 @@ if( isset($_POST["ubah"]) ) {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">
+                        <a class="nav-link" href="../product/">
                             <span class="menu-title">Tabel Produk</span>
                             <i class="mdi mdi-table-large menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../user/">
+                        <a class="nav-link" href="index.php">
                             <span class="menu-title">Tabel Pengguna</span>
                             <i class="mdi mdi-table-large menu-icon"></i>
                         </a>
                     </li>
                 </ul>
             </nav>
+
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="row">
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-header">
-                                    <a style="text-decoration: none;" class="text-dark" href="index.php">Produk / </a>
+                                    <a style="text-decoration: none;" class="text-dark" href="index.php">Product / </a>
                                     <a style="text-decoration: none;" class="text-dark font-weight-bold"
-                                        href="edit.php">Edit
-                                        Produk</a>
+                                        href="detail.php">Detail
+                                        Product</a>
                                 </div>
                                 <div class="card-body">
-                                    <form method="post" action="" id="myForm" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                            <label for="namabarang">Nama Barang</label>
-                                            <input type="text" name="namabarang" class="form-control" id="namabarang"
-                                                value="<?= $product["namabarang"] ?>" aria-describedby="namabarang">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="ringkasan">Ringkasan</label>
-                                            <input type="text" name="ringkasan" class="form-control" id="ringkasan"
-                                                value="<?= $product['ringkasan'] ?>" aria-describedby="ringkasan">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="deskripsi">Deskripsi</label>
-                                            <input type="text" name="deskripsi" class="form-control" id="deskripsi"
-                                                value="<?= $product['deskripsi'] ?>" aria-describedby="deskripsi">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="harga">Harga</label>
-                                            <input type="number" name="harga" class="form-control" id="harga"
-                                                value="<?= $product['harga'] ?>" aria-describedby="harga">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="stock">Stock</label>
-                                            <input type="number" name="stock" class="form-control" id="stock"
-                                                value="<?= $product['stock'] ?>" aria-describedby="stock">
-                                        </div>
-                                        <div class=" form-group">
-                                            <label for="gambar">Picture</label>
-                                            <input type="file" class="form-control" name="gambar" value="gambar"></br>
-                                            <img width="150px"
-                                                src="../../public/assets/product_img/<?php echo $product['gambar']?>">
-                                        </div>
-                                        <button type="submit" name="ubah" id="ubah"
-                                            class="btn btn-primary">Ubah</button>
-                                    </form>
+                                    <table class="table table-striped table-hover">
+                                        <tr>
+                                            <th>Nama</th>
+                                            <td><?php echo $result['name'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Email</th>
+                                            <td><?php echo $result['email'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Jenis Kelamin</th>
+                                            <td><?php echo $result['jeniskelamin'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Alamat</th>
+                                            <td><?php echo $result['address'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Telepon</th>
+                                            <td><?php echo $result['telephone'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tanggal Lahir</th>
+                                            <td><?php echo $result['tanggallahir'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tempat Lahir</th>
+                                            <td><?php echo $result['tempatlahir'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Gambar</th>
+                                            <td><img width="100px" class="rounded"
+                                                    src="../../public/assets/user_img/<?php echo $result['picture'] ?>">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <a class="btn btn-success mt-3" href="index.php">Kembali</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- page-body-wrapper ends -->
         </div>
-        <!-- page-body-wrapper ends -->
         <footer class="footer">
             <div class="container-fluid d-flex justify-content-between">
                 <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright ©Warshop

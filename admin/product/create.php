@@ -19,7 +19,7 @@ if( isset($_POST["submit"]) ) {
 		echo "
 			<script>
 				alert('data gagal ditambahkan!');
-				document.location.href = 'create.php';
+				document.location.href = '#';
 			</script>
 		";
 	}
@@ -74,7 +74,7 @@ if( isset($_POST["submit"]) ) {
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                             <a class="dropdown-item" href="#">
-                                <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
+                                <i class="mdi mdi-logout me-2 text-primary"></i> Logout </a>
                         </div>
                     </li>
                 </ul>
@@ -103,14 +103,14 @@ if( isset($_POST["submit"]) ) {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span class="menu-title">Dashboard</span>
-                            <i class="mdi mdi-home menu-icon"></i>
+                        <a class="nav-link" href="index.php">
+                            <span class="menu-title">Tabel Produk</span>
+                            <i class="mdi mdi-table-large menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span class="menu-title">Products Table</span>
+                        <a class="nav-link" href="../user/">
+                            <span class="menu-title">Tabel Pengguna</span>
                             <i class="mdi mdi-table-large menu-icon"></i>
                         </a>
                     </li>
@@ -123,7 +123,7 @@ if( isset($_POST["submit"]) ) {
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-header">
-                                    <a style="text-decoration: none;" class="text-dark" href="index.php">Product / </a>
+                                    <a style="text-decoration: none;" class="text-dark" href="index.php">Produk / </a>
                                     <a style="text-decoration: none;" class="text-dark font-weight-bold"
                                         href="create.php">Add
                                         Product</a>
@@ -149,17 +149,6 @@ if( isset($_POST["submit"]) ) {
                                         <div class="form-group">
                                             <label for="stock">Stock</label>
                                             <input type="number" name="stock" class="form-control" id="stock">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="category">Kategori</label>
-                                            <select id="category" name="category" class="form-control">
-                                                <?php
-                                                    $kategori = mysqli_query($mysqli, "SELECT * FROM categories ORDER BY idkategori ASC");
-                                                    while ($data = mysqli_fetch_array($kategori)) {
-                                                        echo "<option value = ".$data['idkategori'].">".$data['kategori']."</option>";
-                                                    }
-                                                ?>
-                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="gambar">Gambar</label>

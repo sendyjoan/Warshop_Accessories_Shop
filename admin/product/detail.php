@@ -58,7 +58,7 @@ $result = mysqli_fetch_array($result);
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                             <a class="dropdown-item" href="#">
-                                <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
+                                <i class="mdi mdi-logout me-2 text-primary"></i> Logout </a>
                         </div>
                     </li>
                 </ul>
@@ -87,14 +87,14 @@ $result = mysqli_fetch_array($result);
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span class="menu-title">Dashboard</span>
-                            <i class="mdi mdi-home menu-icon"></i>
+                        <a class="nav-link" href="index.php">
+                            <span class="menu-title">Tabel Produk</span>
+                            <i class="mdi mdi-table-large menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">
-                            <span class="menu-title">Products Table</span>
+                        <a class="nav-link" href="../user/">
+                            <span class="menu-title">Tabel Pengguna</span>
                             <i class="mdi mdi-table-large menu-icon"></i>
                         </a>
                     </li>
@@ -107,10 +107,10 @@ $result = mysqli_fetch_array($result);
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-header">
-                                    <a style="text-decoration: none;" class="text-dark" href="index.php">Product / </a>
+                                    <a style="text-decoration: none;" class="text-dark" href="index.php">Produk / </a>
                                     <a style="text-decoration: none;" class="text-dark font-weight-bold"
                                         href="detail.php">Detail
-                                        Product</a>
+                                        Produk</a>
                                 </div>
                                 <div class="card-body">
                                     <table class="table table-striped table-hover">
@@ -131,17 +131,6 @@ $result = mysqli_fetch_array($result);
                                             <td><?php echo $result['deskripsi'] ?></td>
                                         </tr>
                                         <tr>
-                                            <th>Kategori</th>
-                                            <td>
-                                                <?php 
-                                                $r = $result['category_id'];
-                                                $kategori = mysqli_query($mysqli, "SELECT kategori FROM categories where idkategori = $r "); 
-                                                $data = mysqli_fetch_array($kategori);
-                                                echo $data['kategori'];
-                                            ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
                                             <th>Harga</th>
                                             <td>Rp.<?php echo $result['harga'] ?>,-</td>
                                         </tr>
@@ -150,7 +139,7 @@ $result = mysqli_fetch_array($result);
                                             <td><?php echo $result['stock'] ?></td>
                                         </tr>
                                         <tr>
-                                            <th>Picture</th>
+                                            <th>Gambar</th>
                                             <td><img width="100px" class="rounded"
                                                     src="../../public/assets/product_img/<?php echo $result['gambar'] ?>">
                                             </td>

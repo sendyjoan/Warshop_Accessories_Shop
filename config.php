@@ -30,8 +30,6 @@ function addproduct($data){
 	$harga = (int)$harga;
 	$stock = $_POST["stock"];
 	$stock = (int)$stock;
-	$categori = $_POST["category"];
-	$categori = (int)$categori;
 
 	// Gambar 
 	$namaFile = $_FILES['gambar']['name'];
@@ -64,11 +62,11 @@ function addproduct($data){
 	$namaFileBaru .= $ekstensiGambar;
 
 
-	move_uploaded_file($tmpName, 'public/assets/product_img/' . $namaFileBaru);
+	move_uploaded_file($tmpName, '../../public/assets/product_img/' . $namaFileBaru);
 
 	// var_dump($namaFileBaru);
 
-	mysqli_query($mysqli, "INSERT INTO products (namabarang, ringkasan, deskripsi, harga, stock, category_id, gambar) VALUES ('$namabarang', '$ringkasan', '$deskripsi', '$harga', '$stock', '$categori', '$namaFileBaru')");
+	mysqli_query($mysqli, "INSERT INTO products (namabarang, ringkasan, deskripsi, harga, stock, gambar) VALUES ('$namabarang', '$ringkasan', '$deskripsi', '$harga', '$stock', '$namaFileBaru')");
 	$status = mysqli_affected_rows($mysqli);
 
 	return $status;
@@ -85,8 +83,6 @@ function ubah($data) {
 	$harga = (int)$harga;
 	$stock = $_POST["stock"];
 	$stock = (int)$stock;
-	$categori = $_POST["category"];
-	$categori = (int)$categori;
 	$gambarLama = htmlspecialchars($data["gambarLama"]);
 	$gambar = null;
 	
@@ -113,7 +109,7 @@ function ubah($data) {
 		$namaFileBaru .= '.';
 		$namaFileBaru .= $ekstensiGambar;
 
-		move_uploaded_file($tmpName, 'public/assets/product_img/' . $namaFileBaru);
+		move_uploaded_file($tmpName, '../../public/assets/product_img/' . $namaFileBaru);
 		$gambar = $namaFileBaru;
 	}
 	
@@ -124,7 +120,6 @@ function ubah($data) {
 				deskripsi = '$deskripsi',
 				harga = '$harga',
 				stock = '$stock',
-				category_id = '$categori',
 				gambar = '$gambar'
 			  WHERE idproduct = $id
 			";
