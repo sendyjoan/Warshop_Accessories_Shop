@@ -49,7 +49,7 @@
         }
     }elseif (isset($_SESSION["email"])) {
         echo "<script>
-            document.location.href = '../index.php';
+            document.location.href = '../user';
         </script>";
     }
 ?>
