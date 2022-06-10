@@ -3,6 +3,7 @@
     var_dump($_SESSION["email"]);
 
     unset($_SESSION["email"]);
+    unset($_SESSION["role"]);
 
      session_unset();
      session_destroy();

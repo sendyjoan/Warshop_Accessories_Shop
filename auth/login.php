@@ -6,10 +6,12 @@
         $email = $_POST["email"];
         $password = $_POST["password"];
 
-		$result = mysqli_query($mysqli, "SELECT * FROM users WHERE email = '$email'");
+		$result = mysqli_query($mysqli, "SELECT * FROM users WHERE email = '$email' AND role_id = 1");
+        $admin = mysqli_query($mysqli, "SELECT * FROM users WHERE email = '$email' AND role_id = 2");
 
 		// cek username
-		if( mysqli_num_rows($result) === 1 ) {
+        // Untuk User
+		if( mysqli_num_rows($result) === 1 && mysqli_num_rows($admin) === 0) {
 			// cek password
 			$row = mysqli_fetch_assoc($result);
 			if( password_verify($password, $row["password"]) ) {
@@ -26,11 +28,28 @@
 				document.location.href = '../index.php';
 		       </script>";
             }
-		}
-		$error = true;
+		}elseif (mysqli_num_rows($result) === 0 && mysqli_num_rows($admin) === 1) {
+            // cek password
+			$row = mysqli_fetch_assoc($admin);
+			if( password_verify($password, $row["password"]) ) {
+				$email = $row["email"];
+				$_SESSION["email"] = $email;
+                $_SESSION["role"] = 2;
+				echo "<script>
+			    alert('Anda berhasil Login')
+				document.location.href = '../admin/product';
+		       </script>";
+				exit;
+			}else{
+                echo "<script>
+			    alert('Login anda gagal!')
+				document.location.href = '../index.php';
+		       </script>";
+            }
+        }
     }elseif (isset($_SESSION["email"])) {
         echo "<script>
-            document.location.href = '../user/';
+            document.location.href = '../user';
         </script>";
     }
 ?>
