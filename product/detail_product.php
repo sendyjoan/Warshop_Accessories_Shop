@@ -132,11 +132,9 @@
                                     </g>
                                 </svg>
                             </a>
-                            <form class="form-inline">
-                                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </button>
-                            </form>
+                            <a href="../belogout.php" class="user_link">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
                 </nav>

@@ -96,12 +96,6 @@
                                 Ingat saya
                             </label>
                         </div>
-
-                        <div>
-                            <a href="#" class="txt1">
-                                Lupa Password?
-                            </a>
-                        </div>
                     </div>
 
 
