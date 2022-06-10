@@ -17,6 +17,7 @@
 			if( password_verify($password, $row["password"]) ) {
 				$email = $row["email"];
 				$_SESSION["email"] = $email;
+                $_SESSION["id"] = $row["id"];
 				echo "<script>
 			    alert('Anda berhasil Login')
 				document.location.href = '../user/';
@@ -34,6 +35,7 @@
 			if( password_verify($password, $row["password"]) ) {
 				$email = $row["email"];
 				$_SESSION["email"] = $email;
+                $_SESSION["id"] = $row["id"];
                 $_SESSION["role"] = 2;
 				echo "<script>
 			    alert('Anda berhasil Login')

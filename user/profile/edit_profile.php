@@ -2,8 +2,8 @@
 include_once("../../config.php");
 
 // ambil data di URL
-$id = 1;
-// $id = $_GET["id"];
+// $id = 1;
+$id = $_GET["id"];
 
 // query data mahasiswa berdasarkan id
 $result = mysqli_query($mysqli, "SELECT * FROM users INNER JOIN roles ON users.role_id = roles.idrole INNER JOIN genders ON users.gender_id = genders.idjeniskelamin WHERE id = '$id'");
@@ -18,7 +18,7 @@ if ( isset($_POST["editprofile"])) {
 		echo "
 			<script>
 				alert('Profile berhasil diubah!');
-				document.location.href = 'index.php';
+				document.location.href = '../index.php';
 			</script>
 		";
 	} else {

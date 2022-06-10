@@ -2,8 +2,8 @@
     include_once("../../config.php");
 
     // ambil data di URL
-    // $id = $_GET["id"];
-    $id = 1;
+    $id = $_GET["id"];
+    // $id = 1;
 
     $nilai = mysqli_query($mysqli, "SELECT * FROM users WHERE id = '$id'");
     $nilai = mysqli_fetch_array($nilai);

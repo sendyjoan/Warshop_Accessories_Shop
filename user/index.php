@@ -1,5 +1,7 @@
 <?php
 // Create database connection using config file
+session_start();
+$id = $_SESSION["id"];
 include_once("../config.php");
 // Fetch all users data from database
  $result = mysqli_query($mysqli, "SELECT * FROM products ORDER BY idproduct ASC");
@@ -78,7 +80,7 @@ include_once("../config.php");
                             </li>
                         </ul>
                         <div class="user_option">
-                            <a href="profile/" class="user_link">
+                            <a href="profile/index.php?id=<?php echo $id ?>" class="user_link">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
                             <a class="cart_link" href="profile/">
