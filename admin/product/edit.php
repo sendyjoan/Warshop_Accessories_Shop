@@ -8,7 +8,7 @@ $id = $_GET["id"];
 $product = mysqli_query($mysqli, "SELECT * FROM products WHERE idproduct = $id");
 $product = mysqli_fetch_array($product);
 
-var_dump($product);
+// var_dump($product);
 
 if( isset($_POST["ubah"]) ) {
 	
@@ -175,6 +175,8 @@ if( isset($_POST["ubah"]) ) {
                                             <img width="150px"
                                                 src="../../public/assets/product_img/<?php echo $product['gambar']?>">
                                         </div>
+                                        <input type="hidden" name="idproduct" value="<?= $product["idproduct"]; ?>">
+                                        <input type="hidden" name="gambarLama" value="<?= $product["gambar"]; ?>">
                                         <button type="submit" name="ubah" id="ubah"
                                             class="btn btn-primary">Ubah</button>
                                     </form>
