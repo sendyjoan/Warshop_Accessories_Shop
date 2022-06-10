@@ -14,6 +14,9 @@
 			// cek password
 			$row = mysqli_fetch_assoc($result);
 			if( password_verify($password, $row["password"]) ) {
+				session_start();
+				$email = $row["email"];
+				$_SESSION["email"] = $email;
 				echo "<script>
 			    alert('Anda berhasil Login')
 				document.location.href = 'index.php';
