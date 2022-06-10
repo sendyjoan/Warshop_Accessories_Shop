@@ -2,6 +2,12 @@
     include_once("../../config.php");
 
     $result = mysqli_query($mysqli, "SELECT * FROM users INNER JOIN roles ON users.role_id = roles.idrole INNER JOIN genders ON users.gender_id = genders.idjeniskelamin ;");
+    session_start();
+    if (!isset($_SESSION["role"])) {
+       echo "<script>
+       document.location.href = '../../auth/login.php';
+       </script>";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

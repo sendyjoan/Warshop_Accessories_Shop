@@ -1,5 +1,11 @@
 <?php
 include_once("../../config.php");
+session_start();
+ if (!isset($_SESSION["role"])) {
+    echo "<script>
+    document.location.href = '../../auth/login.php';
+    </script>";
+ }
 
 // ambil data di URL
 $id = $_GET["id"];
