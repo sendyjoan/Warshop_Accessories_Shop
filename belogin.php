@@ -4,7 +4,7 @@
     if( isset($_POST["login"]) ) {
         $email = $_POST["email"];
         $password = $_POST["password"];
-		// $password = $_POST[""]
+		// $password = $_POST[""];
 
 		$result = mysqli_query($mysqli, "SELECT * FROM users WHERE email = '$email'");
 
