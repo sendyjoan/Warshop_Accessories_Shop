@@ -6,6 +6,10 @@ session_start();
         echo "<script>
        document.location.href = '../../auth/login.php';
        </script>";
+    }elseif ( !isset($_SESSION["email"])) {
+        echo "<script>
+       document.location.href = '../../auth/login.php';
+       </script>";
     }
 
 // ambil data di URL

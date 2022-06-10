@@ -5,6 +5,10 @@ session_start();
         echo "<script>
        document.location.href = '../auth/login.php';
        </script>";
+    }elseif ( !isset($_SESSION["email"])) {
+        echo "<script>
+       document.location.href = '../auth/login.php';
+       </script>";
     }
 $id = $_SESSION["id"];
 include_once("../config.php");
