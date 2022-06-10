@@ -8,6 +8,6 @@
      session_unset();
      session_destroy();
 
-     header("location:belogin.php");
+     header("location:index.php");
 	
 ?>

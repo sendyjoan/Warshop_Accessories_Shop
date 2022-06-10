@@ -138,6 +138,9 @@ include_once("../config.php");
                                     </g>
                                 </svg>
                             </a>
+                            <a href="../belogout.php" class="user_link">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
                 </nav>
