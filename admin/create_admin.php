@@ -1,19 +1,25 @@
 <?php
     include_once("../config.php");
+    session_start();
+    if (!isset($_SESSION["role"])) {
+       echo "<script>
+       document.location.href = '../../auth/login.php';
+       </script>";
+    }
 
     if ( isset($_POST["createadmin"])) {
-        var_dump($_POST);
-        var_dump($_FILES);
-        // if( createAdmin($_POST) > 0){
-        //     echo "<script>
-        //         alert('Selamat admin telah terdaftar!')
-        //         document.location.href = 'product/';
-        //         </script>";
-        // }else{
-        //     echo "<script>
-        //         alert('Proses menambahkan admin gagal!')
-        //         </script>";
-        // }
+        // var_dump($_POST);
+        // var_dump($_FILES);
+        if( createAdmin($_POST) > 0){
+            echo "<script>
+                alert('Selamat admin telah terdaftar!')
+                document.location.href = 'product/';
+                </script>";
+        }else{
+            echo "<script>
+                alert('Proses menambahkan admin gagal!')
+                </script>";
+        }
     }
 ?>
 <!DOCTYPE html>
