@@ -62,7 +62,7 @@ function addproduct($data){
 	$namaFileBaru .= '.';
 	$namaFileBaru .= $ekstensiGambar;
 
-	move_uploaded_file($tmpName, 'product_img/' . $namaFileBaru);
+	move_uploaded_file($tmpName, '../../public/assets/product_img/' . $namaFileBaru);
 
 	// var_dump($namaFileBaru);
 

@@ -13,7 +13,7 @@
     <meta name="author" content="" />
     <link rel="shortcut icon" href="../public/assets/images/favicon.png" type="">
 
-    <title> SLM | Tentang</title>
+    <title> Warshop | Tentang</title>
 
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="../public/assets/css/bootstrap.css" />
@@ -49,7 +49,7 @@
                 <nav class="navbar navbar-expand-lg custom_nav-container ">
                     <a class="navbar-brand" href="index.php">
                         <span>
-                            SLM
+                            Warshop
                         </span>
                     </a>
 
@@ -153,7 +153,7 @@
                     <div class="detail-box">
                         <div class="heading_container">
                             <h2>
-                                Kami adalah SLM
+                                Kami adalah Warshop
                             </h2>
                         </div>
                         <p>
@@ -205,7 +205,7 @@
                 <div class="col-md-4 footer-col">
                     <div class="footer_detail">
                         <a href="" class="footer-logo">
-                            SLM
+                            Warshop
                         </a>
                         <p>
                             UMKM Kerajinan Tas dan Dompet Mojokerto merupakan usaha menengah yang bergerak pada sektor
