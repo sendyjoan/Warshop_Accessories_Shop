@@ -33,7 +33,8 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form class="regist100-form validate-form" style="background-color: #0c0c0c;">
+                <form class="regist100-form validate-form" style="background-color: #0c0c0c;" action="" method="post">
+                    <input type="hidden" name="role" id="role" value="1">
                     <div align="right" style="margin-bottom: 15px;">
                         <a href="login.php">
                             <i class="fa fa-arrow-right text-sm pr-2 " style="color: #ffbe33">
@@ -45,7 +46,7 @@
                     </span>
 
                     <div class="wrap-regist100 validate-input" data-validate="Anda harus memasukkan nama Anda">
-                        <input class="input100" type="text" name="neme" placeholder="Masukkan Nama">
+                        <input class="input100" type="text" name="name" placeholder="Masukkan Nama">
                     </div>
 
                     <div class="wrap-regist100 validate-input"
@@ -55,11 +56,11 @@
 
 
                     <div class="wrap-regist100 validate-input" data-validate="Password tidak boleh kosong">
-                        <input class="input100" type="password" name="pass" placeholder="Masukkan Password">
+                        <input class="input100" type="password" name="password1" placeholder="Masukkan Password">
                     </div>
 
                     <div class="wrap-regist100 validate-input" data-validate="Masukkan konfirmasi password">
-                        <input class="input100" type="password" name="pass" placeholder="Masukkan Konfirmasi Password">
+                        <input class="input100" type="password" name="password2" placeholder="Masukkan Konfirmasi Password">
                     </div>
 
                     <div class="flex-sb-m w-full p-t-3 p-b-32">
@@ -67,7 +68,7 @@
 
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn btn-1">
+                        <button class="login100-form-btn btn-1" name="registrasi">
                             Daftar
                         </button>
                     </div>
