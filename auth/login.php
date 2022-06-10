@@ -48,6 +48,11 @@
             }
         }
     }elseif (isset($_SESSION["email"])) {
+        if (isset($_SESSION["role"])) {
+            echo "<script>
+				document.location.href = '../admin/product';
+		       </script>";
+        }
         echo "<script>
             document.location.href = '../user';
         </script>";
