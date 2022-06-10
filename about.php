@@ -49,7 +49,7 @@
                 <nav class="navbar navbar-expand-lg custom_nav-container ">
                     <a class="navbar-brand" href="index.php">
                         <span>
-                            Feane
+                            SLM
                         </span>
                     </a>
 
@@ -132,11 +132,6 @@
                                     </g>
                                 </svg>
                             </a>
-                            <form class="form-inline">
-                                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </button>
-                            </form>
                             <a href="auth/login.php" class="order_online">
                                 Masuk
                             </a>
@@ -146,13 +141,11 @@
             </div>
         </header>
         <!-- end header section -->
-
     </div>
-    <!-- about section -->
 
+    <!-- about section -->
     <section class="about_section layout_padding">
         <div class="container  ">
-
             <div class="row">
                 <div class="col-md-6 ">
                     <div class="img-box">
@@ -163,31 +156,23 @@
                     <div class="detail-box">
                         <div class="heading_container">
                             <h2>
-                                We Are Feane
+                                Kami adalah SLM
                             </h2>
                         </div>
                         <p>
-                            There are many variations of passages of Lorem Ipsum available, but the majority have
-                            suffered
-                            alteration
-                            in some form, by injected humour, or randomised words which don't look even slightly
-                            believable.
-                            If you
-                            are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything
-                            embarrassing
-                            hidden in
-                            the middle of text. All
+                            UMKM Kerajinan Tas dan Dompet Mojokerto merupakan usaha menengah yang bergerak pada sektor
+                            kerajinan tangan yang berlokasi di RT. 015/RW.05 Dsn. Unengan, Ds. Sekargadung, Kec.
+                            Pungging, Kab. Mojokerto yang didirikan sejak 2003. Sebagai salah satu pembuat kerajinan
+                            tangan tas dan dompet, UMKM ini menyediakan berbagai model tas dan dompet wanita yang modern
+                            dan trendy jika dipakai. Menerima pesanan dalam bentuk eceran ataupun grosir.
                         </p>
-                        <a href="">
-                            Read More
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- end about section -->
+
     <!-- footer section -->
     <footer class="footer_section">
         <div class="container">
@@ -195,25 +180,26 @@
                 <div class="col-md-4 footer-col">
                     <div class="footer_contact">
                         <h4>
-                            Contact Us
+                            Kontak Kami
                         </h4>
                         <div class="contact_link_box">
-                            <a href="">
+                            <a
+                                href="https://www.google.com/maps/place/Sekargadung,+Pungging,+Mojokerto+Regency,+East+Java/@-7.5546809,112.56805,15z/data=!3m1!4b1!4m5!3m4!1s0x2e7874fe96cf4081:0xfbd4b8b656de7b!8m2!3d-7.5539338!4d112.5662284">
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                                 <span>
-                                    Location
+                                    Lokasi
                                 </span>
                             </a>
-                            <a href="">
+                            <a href="https://wa.me/6287702508782">
                                 <i class="fa fa-phone" aria-hidden="true"></i>
                                 <span>
-                                    Call +01 1234567890
+                                    Hubungi +6287702508782
                                 </span>
                             </a>
-                            <a href="">
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <a href="https://www.instagram.com/mrshop515/">
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
                                 <span>
-                                    demo@gmail.com
+                                    mrshop515
                                 </span>
                             </a>
                         </div>
@@ -222,52 +208,33 @@
                 <div class="col-md-4 footer-col">
                     <div class="footer_detail">
                         <a href="" class="footer-logo">
-                            Feane
+                            SLM
                         </a>
                         <p>
-                            Necessary, making this the first true generator on the Internet. It uses a dictionary of
-                            over
-                            200 Latin
-                            words, combined with
+                            UMKM Kerajinan Tas dan Dompet Mojokerto merupakan usaha menengah yang bergerak pada sektor
+                            kerajinan tangan
                         </p>
-                        <div class="footer_social">
-                            <a href="">
-                                <i class="fa fa-facebook" aria-hidden="true"></i>
-                            </a>
-                            <a href="">
-                                <i class="fa fa-twitter" aria-hidden="true"></i>
-                            </a>
-                            <a href="">
-                                <i class="fa fa-linkedin" aria-hidden="true"></i>
-                            </a>
-                            <a href="">
-                                <i class="fa fa-instagram" aria-hidden="true"></i>
-                            </a>
-                            <a href="">
-                                <i class="fa fa-pinterest" aria-hidden="true"></i>
-                            </a>
-                        </div>
                     </div>
                 </div>
                 <div class="col-md-4 footer-col">
                     <h4>
-                        Opening Hours
+                        Jam Operasional
                     </h4>
                     <p>
-                        Everyday
+                        <b>Senin - Minggu</b>
                     </p>
                     <p>
-                        10.00 Am -10.00 Pm
+                        <li>
+                            Pagi = 08.00 - 12.00
+                        </li>
+                        <li>
+                            Sore = 14.00 - 16.00
+                        </li>
+                        <li>
+                            Malam = 19.00 - 22.00
+                        </li>
                     </p>
                 </div>
-            </div>
-            <div class="footer-info">
-                <p>
-                    &copy; <span id="displayYear"></span> All Rights Reserved By
-                    <a href="https://html.design/">Free Html Templates</a><br><br>
-                    &copy; <span id="displayYear"></span> Distributed By
-                    <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
-                </p>
             </div>
         </div>
     </footer>
@@ -287,8 +254,7 @@
     <!-- isotope js -->
     <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
     <!-- nice select -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js">
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
     <!-- custom js -->
     <script src="public/assets/js/custom.js"></script>
     <!-- Google Map -->

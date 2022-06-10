@@ -1,3 +1,9 @@
+<?php
+// Create database connection using config file
+include_once("../../config.php");
+// Fetch all users data from database
+ $result = mysqli_query($mysqli, "SELECT * FROM products ORDER BY idproduct ASC");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +11,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>SLM Admin</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../public/assets/adminAssets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../public/assets/adminAssets/vendors/css/vendor.bundle.base.css">
@@ -82,7 +88,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="index.php">
                             <span class="menu-title">Products Table</span>
                             <i class="mdi mdi-table-large menu-icon"></i>
                         </a>
@@ -93,15 +99,6 @@
                 <div class="content-wrapper">
                     <div class="page-header">
                         <h3 class="page-title"> Products Table </h3>
-                        <div class="float-left my-2">
-                            <form action="#">
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Search . . . " name="search"
-                                        value="#">
-                                    <button class="btn btn-success" type="submit">Search</button>
-                                </div>
-                            </form>
-                        </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12 grid-margin stretch-card">
@@ -122,21 +119,29 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php  
+                                                while($user_data = mysqli_fetch_array($result)) {         
+                                            ?>
                                             <tr>
-                                                <td>Id</td>
-                                                <td>Bai bai</td>
-                                                <td>60000</td>
-                                                <td>70</td>
-                                                <td><img class="rounded" width="50px" height="50px" src="#" alt=""
-                                                        srcset=""></td>
+                                                <td><?php echo $user_data['namabarang'] ?></td>
+                                                <td><?php echo $user_data['ringkasan'] ?></td>
+                                                <td>Rp.<?php echo $user_data['harga'] ?>,-</td>
+                                                <td><?php echo $user_data['stock'] ?></td>
+                                                <td><img class="rounded" width="100px" height="100px"
+                                                        src="../../public/assets/product_img/<?php echo $user_data['gambar'] ?>"
+                                                        alt=""></td>
                                                 <td>
                                                     <form action="#" method="POST">
                                                         <a class="btn btn-info" href="detail.php">Show</a>
                                                         <a class="btn btn-primary" href="edit.php">Edit</a>
+                                                        <a class="btn btn-primary" href="delete.php">Del</a>
                                                         <button type="submit" class="btn btn-danger">Delete</button>
                                                     </form>
                                                 </td>
                                             </tr>
+                                            <?php
+                                                }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>

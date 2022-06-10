@@ -1,3 +1,30 @@
+<?php
+include_once("../../config.php");
+
+// cek apakah tombol submit sudah ditekan atau belum
+if( isset($_POST["submit"]) ) {
+	
+    // var_dump($_POST);
+	// var_dump($_FILES);
+	
+	// cek apakah data berhasil di tambahkan atau tidak
+	if( addproduct($_POST) > 0 ) {
+		echo "
+			<script>
+				alert('data berhasil ditambahkan!');
+				document.location.href = 'index.php';
+			</script>
+		";
+	} else {
+		echo "
+			<script>
+				alert('data gagal ditambahkan!');
+				document.location.href = 'create.php';
+			</script>
+		";
+	}
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +32,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>SLM Admin</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../public/assets/adminAssets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../public/assets/adminAssets/vendors/css/vendor.bundle.base.css">
@@ -90,7 +117,6 @@
                 </ul>
             </nav>
 
-
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="row">
@@ -103,27 +129,43 @@
                                         Product</a>
                                 </div>
                                 <div class="card-body">
-                                    <form method="post" action="#" id="myForm" enctype="multipart/form-data">
+                                    <form action="" method="post" enctype="multipart/form-data">
                                         <div class="form-group">
-                                            <label for="name">Name</label>
-                                            <input type="text" name="name" class="form-control" id="name"
-                                                aria-describedby="name">
+                                            <label for="namabarang">Name Barang</label>
+                                            <input type="text" name="namabarang" class="form-control" id="namabarang">
                                         </div>
                                         <div class="form-group">
-                                            <label for="price">Price</label>
-                                            <input type="number" name="price" class="form-control" id="price"
-                                                aria-describedby="price">
+                                            <label for="ringkasan">Ringkasan</label>
+                                            <input type="text" name="ringkasan" class="form-control" id="ringkasan">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="deskripsi">Deskripsi</label>
+                                            <input type="text" name="deskripsi" class="form-control" id="deskripsi">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="harga">Harga</label>
+                                            <input type="number" name="harga" class="form-control" id="harga">
                                         </div>
                                         <div class="form-group">
                                             <label for="stock">Stock</label>
-                                            <input type="number" name="stock" class="form-control" id="stock"
-                                                aria-describedby="stock">
+                                            <input type="number" name="stock" class="form-control" id="stock">
                                         </div>
                                         <div class="form-group">
-                                            <label for="image">Picture</label>
-                                            <input type="file" class="form-control" name="image"></br>
+                                            <label for="category">Kategori</label>
+                                            <select id="category" name="category" class="form-control">
+                                                <?php
+                                                    $kategori = mysqli_query($mysqli, "SELECT * FROM categories ORDER BY idkategori ASC");
+                                                    while ($data = mysqli_fetch_array($kategori)) {
+                                                        echo "<option value = ".$data['idkategori'].">".$data['kategori']."</option>";
+                                                    }
+                                                ?>
+                                            </select>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <div class="form-group">
+                                            <label for="gambar">Gambar</label>
+                                            <input type="file" class="form-control" name="gambar"></br>
+                                        </div>
+                                        <button type="submit" name="submit" class="btn btn-primary">Tambah</button>
                                     </form>
                                 </div>
                             </div>
