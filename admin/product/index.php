@@ -51,7 +51,7 @@ include_once("../../config.php");
                             </div>
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="../../belogout.php">
                                 <i class="mdi mdi-logout me-2 text-primary"></i> Logout </a>
                         </div>
                     </li>
