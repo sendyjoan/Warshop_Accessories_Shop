@@ -1,3 +1,39 @@
+<?php
+    include_once("../config.php");
+    session_start();
+    
+    if( isset($_POST["login"]) ) {
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+
+		$result = mysqli_query($mysqli, "SELECT * FROM users WHERE email = '$email'");
+
+		// cek username
+		if( mysqli_num_rows($result) === 1 ) {
+			// cek password
+			$row = mysqli_fetch_assoc($result);
+			if( password_verify($password, $row["password"]) ) {
+				$email = $row["email"];
+				$_SESSION["email"] = $email;
+				echo "<script>
+			    alert('Anda berhasil Login')
+				document.location.href = '../user/';
+		       </script>";
+				exit;
+			}else{
+                echo "<script>
+			    alert('Login anda gagal!')
+				document.location.href = '../index.php';
+		       </script>";
+            }
+		}
+		$error = true;
+    }elseif (isset($_SESSION["email"])) {
+        echo "<script>
+            document.location.href = '../user/';
+        </script>";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +69,7 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form class="login100-form validate-form">
+                <form class="login100-form validate-form" action="" method="post">
                     <div align="right" style="margin-bottom: 30px;">
                         <a href="../index.php">
                             <i class="fa fa-arrow-right text-sm pr-2 " style="color: #ffbe33">
@@ -50,7 +86,7 @@
 
 
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input class="input100" type="password" name="pass" placeholder="Password">
+                        <input class="input100" type="password" name="password" placeholder="Password">
                     </div>
 
                     <div class="flex-sb-m w-full p-t-3 p-b-32">
@@ -70,7 +106,7 @@
 
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn btn-1">
+                        <button class="login100-form-btn btn-1" type="submit" name="login">
                             Masuk
                         </button>
                     </div>
