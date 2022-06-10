@@ -1,3 +1,30 @@
+<?php
+    include_once("../../config.php");
+
+    // $id = $_GET["id"];
+    $id = 1;
+
+    $query = mysqli_query($mysqli, "SELECT password FROM users WHERE id = '$id'");
+    $query = mysqli_fetch_array($query);
+
+    if(isset($_POST["editpass"])){
+        if (editpassword($_POST) > 0) {
+            echo "
+			<script>
+				alert('Password berhasil diubah!');
+				document.location.href = 'index.php';
+			</script>
+		";
+        }else{
+            echo "
+			<script>
+				alert('Passsword GAGAL diubah!');
+				document.location.href = 'edit_password.php';
+			</script>
+		";
+        }
+    }
+?>
 <!DOCTYPE html>
 <html>
 
@@ -13,7 +40,7 @@
     <meta name="author" content="" />
     <link rel="shortcut icon" href="../../public/assets/images/favicon.png" type="">
 
-    <title> Warshop | Edit Profile</title>
+    <title> Warshop | Edit Password</title>
 
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="../../public/assets/css/bootstrap.css" />
@@ -33,121 +60,12 @@
     <link href="../../public/assets/css/style.css" rel="stylesheet" />
     <!-- responsive style -->
     <link href="../../public/assets/css/responsive.css" rel="stylesheet" />
+    <link href="../../public/assets/css/profile.css" rel="stylesheet" />
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <style>
-    body {
-        background-color: rgb(209, 213, 219);
-    }
 
-    .emp-profile {
-        padding: 3%;
-        margin-top: 3%;
-        margin-bottom: 3%;
-        border-radius: 0.5rem;
-        background-color: #212529;
-    }
-
-    .profile-img {
-        text-align: center;
-    }
-
-    .profile-img img {
-        width: 70%;
-        height: 100%;
-    }
-
-    .profile-img .file {
-        position: relative;
-        overflow: hidden;
-        margin-top: -20%;
-        width: 70%;
-        border: none;
-        border-radius: 0;
-        font-size: 15px;
-        background: #212529b8;
-    }
-
-    .profile-img .file input {
-        position: absolute;
-        opacity: 0;
-        right: 0;
-        top: 0;
-    }
-
-    .profile-head h5 {
-        color: #fff;
-    }
-
-    .profile-head h6 {
-        color: #ffbe33;
-    }
-
-    .profile-edit-btn {
-        border: none;
-        border-radius: 1.5rem;
-        width: 70%;
-        padding: 2%;
-        font-weight: 600;
-        background-color: #ffbe33;
-        color: #fff;
-        cursor: pointer;
-    }
-
-    .profile-head .nav-tabs {
-        margin-bottom: 5%;
-    }
-
-    .profile-head .nav-tabs .nav-link {
-        font-weight: 600;
-        border: none;
-    }
-
-    .profile-head .nav-tabs .nav-link.active {
-        border: none;
-        border-bottom: 2px solid #0062cc;
-    }
-
-    .profile-work {
-        padding: 14%;
-        margin-top: -15%;
-    }
-
-    .profile-work p {
-        font-size: 12px;
-        color: #ffbe33;
-        font-weight: 600;
-        margin-top: 10%;
-    }
-
-    .profile-work a {
-        text-decoration: none;
-        color: #ffbe33;
-        font-weight: 600;
-        font-size: 14px;
-    }
-
-    .profile-work ul {
-        list-style: none;
-    }
-
-    .profile-tab label {
-        font-weight: 600;
-        color: #fff;
-    }
-
-    hr {
-        color: #fff;
-    }
-
-    .profile-tab p {
-        font-weight: 600;
-        color: #ffbe33;
-    }
-    </style>
-    <!------ Include the above in your HEAD tag ---------->
 </head>
 
 <body class="sub_page">
@@ -254,48 +172,30 @@
     </div>
 
 
-    <div class="container emp-profile">
-        <span class="ml-5 pb-5">
+    <div class="container emp-profile col-6">
+        <span class="ml-4 pb-5">
             <i class="fa fa-arrow-left text-sm pr-2 " style="color: #ffbe33">
             </i>
             <a class="text-md font-medium" href="index.php" style="color: #ffbe33">Kembali</a>
         </span>
-        <form class="col-10 mt-2" style="margin-left: 86px;">
-            <div align="center">
-                <h3 class=" text-white">
-                    Edit Profil
-                </h3>
+        <div align="center">
+            <h3 class=" text-white">
+                Edit Password
+            </h3>
+        </div>
+        <form method="post" action="" class="col-10 mt-2 ml-5" style="margin-left: 86px;" enctype="multipart/form-data">
+            <input type="hidden" name="oldpassword" value="<?php echo $query["password"] ?>">
+            <input type="hidden" name="id" value="<?php echo $id ?>">
+            <div class="form-group">
+                <label style="color: #ffbe33;" for="newpassword1">Password Baru</label>
+                <input type="password" class="form-control bg-dark text-white" id="newpassword1" name="newpassword1">
             </div>
             <div class="form-group">
-                <label style="color: #ffbe33;" for="name">Nama Lengkap</label>
-                <input type="text" class="form-control bg-dark text-white" id="name" aria-describedby="name"
-                    placeholder="Kshiti Ghelani">
-            </div>
-            <div class="form-group">
-                <label style="color: #ffbe33;" for="address">Alamat</label>
-                <textarea name="address" class="form-control bg-dark text-white" placeholder="Bandung"></textarea>
-            </div>
-            <div class="form-group">
-                <label style="color: #ffbe33;" for="telp">Telepon</label>
-                <input type="number" class="form-control bg-dark text-white" id="telp" aria-describedby="telp"
-                    placeholder="123 456 7890">
-            </div>
-            <div class="form-group">
-                <label style="color: #ffbe33;" for="date_birth">Tanggal Lahir</label>
-                <input type="text" class="form-control bg-dark text-white" id="date_birth" aria-describedby="date_birth"
-                    placeholder="06 Juni 2006">
-            </div>
-            <div class="form-group">
-                <label style="color: #ffbe33;" for="place_birth">Tempat lahir</label>
-                <input type="text" class="form-control bg-dark text-white" id="place_birth"
-                    aria-describedby="place_birth" placeholder="Banjarmasin">
-            </div>
-            <div class="form-group">
-                <label style="color: #ffbe33;" for="photo">Foto Profil</label>
-                <input type="file" class="form-control bg-dark text-white" id="photo" aria-describedby="photo">
+                <label style="color: #ffbe33;" for="newpassword2">Konfirmasi Password</label>
+                <input type="password" class="form-control bg-dark text-white" id="newpassword2" name="newpassword2">
             </div>
             <div align="center">
-                <button type="submit"
+                <button type="submit" name="editpass"
                     class="btn btn-warning col-3 text-white font-weight-bold mb-2 mt-3">Simpan</button>
             </div>
         </form>

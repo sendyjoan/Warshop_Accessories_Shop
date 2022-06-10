@@ -1,3 +1,38 @@
+<?php
+include_once("../../config.php");
+
+// ambil data di URL
+$id = 1;
+// $id = $_GET["id"];
+
+// query data mahasiswa berdasarkan id
+$result = mysqli_query($mysqli, "SELECT * FROM users INNER JOIN roles ON users.role_id = roles.idrole INNER JOIN genders ON users.gender_id = genders.idjeniskelamin WHERE id = '$id'");
+$result = mysqli_fetch_array($result);
+
+// var_dump($result);
+
+if ( isset($_POST["editprofile"])) {
+    // var_dump($_POST);
+
+    if( editprofile($_POST) > 0 ) {
+		echo "
+			<script>
+				alert('Profile berhasil diubah!');
+				document.location.href = 'index.php';
+			</script>
+		";
+	} else {
+		echo "
+			<script>
+				alert('Profile gagal diubah!');
+				document.location.href = 'edit_profile.php';
+			</script>
+		";
+	}
+
+}
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -33,121 +68,11 @@
     <link href="../../public/assets/css/style.css" rel="stylesheet" />
     <!-- responsive style -->
     <link href="../../public/assets/css/responsive.css" rel="stylesheet" />
+    <link href="../../public/assets/css/profile.css" rel="stylesheet" />
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <style>
-    body {
-        background-color: rgb(209, 213, 219);
-    }
-
-    .emp-profile {
-        padding: 3%;
-        margin-top: 3%;
-        margin-bottom: 3%;
-        border-radius: 0.5rem;
-        background-color: #212529;
-    }
-
-    .profile-img {
-        text-align: center;
-    }
-
-    .profile-img img {
-        width: 70%;
-        height: 100%;
-    }
-
-    .profile-img .file {
-        position: relative;
-        overflow: hidden;
-        margin-top: -20%;
-        width: 70%;
-        border: none;
-        border-radius: 0;
-        font-size: 15px;
-        background: #212529b8;
-    }
-
-    .profile-img .file input {
-        position: absolute;
-        opacity: 0;
-        right: 0;
-        top: 0;
-    }
-
-    .profile-head h5 {
-        color: #fff;
-    }
-
-    .profile-head h6 {
-        color: #ffbe33;
-    }
-
-    .profile-edit-btn {
-        border: none;
-        border-radius: 1.5rem;
-        width: 70%;
-        padding: 2%;
-        font-weight: 600;
-        background-color: #ffbe33;
-        color: #fff;
-        cursor: pointer;
-    }
-
-    .profile-head .nav-tabs {
-        margin-bottom: 5%;
-    }
-
-    .profile-head .nav-tabs .nav-link {
-        font-weight: 600;
-        border: none;
-    }
-
-    .profile-head .nav-tabs .nav-link.active {
-        border: none;
-        border-bottom: 2px solid #0062cc;
-    }
-
-    .profile-work {
-        padding: 14%;
-        margin-top: -15%;
-    }
-
-    .profile-work p {
-        font-size: 12px;
-        color: #ffbe33;
-        font-weight: 600;
-        margin-top: 10%;
-    }
-
-    .profile-work a {
-        text-decoration: none;
-        color: #ffbe33;
-        font-weight: 600;
-        font-size: 14px;
-    }
-
-    .profile-work ul {
-        list-style: none;
-    }
-
-    .profile-tab label {
-        font-weight: 600;
-        color: #fff;
-    }
-
-    hr {
-        color: #fff;
-    }
-
-    .profile-tab p {
-        font-weight: 600;
-        color: #ffbe33;
-    }
-    </style>
-    <!------ Include the above in your HEAD tag ---------->
 </head>
 
 <body class="sub_page">
@@ -260,42 +185,63 @@
             </i>
             <a class="text-md font-medium" href="index.php" style="color: #ffbe33">Kembali</a>
         </span>
-        <form class="col-10 mt-2" style="margin-left: 86px;">
-            <div align="center">
-                <h3 class=" text-white">
-                    Edit Profil
-                </h3>
+        <div align="center">
+            <h3 class=" text-white">
+                Edit Profil
+            </h3>
+        </div>
+        <form method="post" action="" class="col-10 mt-2" style="margin-left: 86px;" enctype="multipart/form-data">
+            <input type="hidden" name="role" id="role" value="1">
+            <input type="hidden" name="id" id="id" value="<?php echo $result['id'] ?>">
+            <input type="hidden" name="email" value="<?php echo $result['email'] ?>">
+            <div class="form-group">
+                <label style="color: #ffbe33;" for="name">Email</label>
+                <input type="text" class="form-control bg-dark text-white" id="" name="" aria-describedby="" disabled
+                    value="<?php echo $result['email'] ?>">
             </div>
             <div class="form-group">
                 <label style="color: #ffbe33;" for="name">Nama Lengkap</label>
-                <input type="text" class="form-control bg-dark text-white" id="name" aria-describedby="name"
-                    placeholder="Kshiti Ghelani">
+                <input type="text" class="form-control bg-dark text-white" id="name" name="name" aria-describedby="name"
+                    value="<?php echo $result['name'] ?>">
             </div>
             <div class="form-group">
                 <label style="color: #ffbe33;" for="address">Alamat</label>
-                <textarea name="address" class="form-control bg-dark text-white" placeholder="Bandung"></textarea>
+                <input name="address" id="address" class="form-control bg-dark text-white"
+                    value="<?php echo $result['address'] ?>">
             </div>
             <div class="form-group">
-                <label style="color: #ffbe33;" for="telp">Telepon</label>
-                <input type="number" class="form-control bg-dark text-white" id="telp" aria-describedby="telp"
-                    placeholder="123 456 7890">
+                <label style="color: #ffbe33;" for="telephone">Telepon</label>
+                <input type="text" class="form-control bg-dark text-white" id="telephone" name="telephone"
+                    aria-describedby="telephone" value="<?php echo $result['telephone'] ?>">
             </div>
             <div class="form-group">
-                <label style="color: #ffbe33;" for="date_birth">Tanggal Lahir</label>
-                <input type="text" class="form-control bg-dark text-white" id="date_birth" aria-describedby="date_birth"
-                    placeholder="06 Juni 2006">
+                <label style="color: #ffbe33;" for="tanggallahir">Tanggal Lahir</label>
+                <input type="date" class="form-control bg-dark text-white" id="tanggallahir" name="tanggallahir"
+                    aria-describedby="tanggallahir" value="<?php echo $result['tanggallahir'] ?>">
             </div>
             <div class="form-group">
-                <label style="color: #ffbe33;" for="place_birth">Tempat lahir</label>
-                <input type="text" class="form-control bg-dark text-white" id="place_birth"
-                    aria-describedby="place_birth" placeholder="Banjarmasin">
+                <label style="color: #ffbe33;" for="tempatlahir">Tempat lahir</label>
+                <input type="text" class="form-control bg-dark text-white" id="tempatlahir" name="tempatlahir"
+                    aria-describedby="tempatlahir" value="<?php echo $result['tempatlahir'] ?>">
             </div>
             <div class="form-group">
+                <label style="color: #ffbe33;" for="gender">Jenis Kelamin</label>
+                <select id="gender" name="gender" class="form-control bg-dark text-white">
+                    <?php if($result["gender_id"] == 1 ){ ?>
+                    <option value="1" selected>Pria</option>
+                    <option value="2">Wanita</option>
+                    <?php }else{?>
+                    <option value="1">Pria</option>
+                    <option value="2" selected>Wanita</option>
+                    <?php }?>
+                </select>
+            </div>
+            <!-- <div class="form-group">
                 <label style="color: #ffbe33;" for="photo">Foto Profil</label>
                 <input type="file" class="form-control bg-dark text-white" id="photo" aria-describedby="photo">
-            </div>
+            </div> -->
             <div align="center">
-                <button type="submit"
+                <button type="submit" name="editprofile"
                     class="btn btn-warning col-3 text-white font-weight-bold mb-2 mt-3">Simpan</button>
             </div>
         </form>

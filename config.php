@@ -225,7 +225,7 @@ function editpict($data){
 		$namaFileBaru .= '.';
 		$namaFileBaru .= $ekstensiGambar;
 
-		move_uploaded_file($tmpName, 'user_img/' . $namaFileBaru);
+		move_uploaded_file($tmpName, '../../public/assets/user_img/' . $namaFileBaru);
 		$gambar = $namaFileBaru;
 	}
 

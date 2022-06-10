@@ -1,3 +1,12 @@
+<?php
+    include_once("../../config.php");
+
+    // $id = $_GET['id'];
+    $id = 1;
+
+    $result = mysqli_query($mysqli, "SELECT * FROM users INNER JOIN roles ON users.role_id = roles.idrole INNER JOIN genders ON users.gender_id = genders.idjeniskelamin WHERE id = '$id'");
+    $result = mysqli_fetch_array($result);
+?>
 <!DOCTYPE html>
 <html>
 
@@ -33,121 +42,12 @@
     <link href="../../public/assets/css/style.css" rel="stylesheet" />
     <!-- responsive style -->
     <link href="../../public/assets/css/responsive.css" rel="stylesheet" />
+    <link href="../../public/assets/css/profile.css" rel="stylesheet" />
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <style>
-    body {
-        background-color: rgb(209, 213, 219);
-    }
 
-    .emp-profile {
-        padding: 3%;
-        margin-top: 3%;
-        margin-bottom: 3%;
-        border-radius: 0.5rem;
-        background-color: #212529;
-    }
-
-    .profile-img {
-        text-align: center;
-    }
-
-    .profile-img img {
-        width: 70%;
-        height: 100%;
-    }
-
-    .profile-img .file {
-        position: relative;
-        overflow: hidden;
-        margin-top: -20%;
-        width: 70%;
-        border: none;
-        border-radius: 0;
-        font-size: 15px;
-        background: #212529b8;
-    }
-
-    .profile-img .file input {
-        position: absolute;
-        opacity: 0;
-        right: 0;
-        top: 0;
-    }
-
-    .profile-head h5 {
-        color: #fff;
-    }
-
-    .profile-head h6 {
-        color: #ffbe33;
-    }
-
-    .profile-edit-btn {
-        border: none;
-        border-radius: 1.5rem;
-        width: 70%;
-        padding: 2%;
-        font-weight: 600;
-        background-color: #ffbe33;
-        color: #fff;
-        cursor: pointer;
-    }
-
-    .profile-head .nav-tabs {
-        margin-bottom: 5%;
-    }
-
-    .profile-head .nav-tabs .nav-link {
-        font-weight: 600;
-        border: none;
-    }
-
-    .profile-head .nav-tabs .nav-link.active {
-        border: none;
-        border-bottom: 2px solid #0062cc;
-    }
-
-    .profile-work {
-        padding: 14%;
-        margin-top: -15%;
-    }
-
-    .profile-work p {
-        font-size: 12px;
-        color: #ffbe33;
-        font-weight: 600;
-        margin-top: 10%;
-    }
-
-    .profile-work a {
-        text-decoration: none;
-        color: #ffbe33;
-        font-weight: 600;
-        font-size: 14px;
-    }
-
-    .profile-work ul {
-        list-style: none;
-    }
-
-    .profile-tab label {
-        font-weight: 600;
-        color: #fff;
-    }
-
-    hr {
-        color: #fff;
-    }
-
-    .profile-tab p {
-        font-weight: 600;
-        color: #ffbe33;
-    }
-    </style>
-    <!------ Include the above in your HEAD tag ---------->
 </head>
 
 <body class="sub_page">
@@ -259,18 +159,17 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
-                            alt="" />
+                        <img src="../../public/assets/user_img/<?php echo $result['picture']?>"
+                            style="max-height: 200px; max-width: 200px;" />
                         <div class="file btn btn-lg btn-primary">
-                            Change Photo
-                            <input type="file" name="file" />
+                            <a href="edit_picture.php" style="text-decoration: none; color:white;">Ubah Foto</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 mt-5">
                     <div class="profile-head">
                         <h5>
-                            Kshiti Ghelani
+                            <?php echo $result['name'] ?>
                         </h5>
                         <h6>
                             Pelanggan
@@ -282,6 +181,11 @@
                         <a href="edit_profile.php" style="text-decoration: none; color:white;">Edit Profil</a>
                     </button>
                 </div>
+                <div class="col-md-3 ml-5 ">
+                    <button class="profile-edit-btn bg-dark">
+                        <a href="edit_password.php" style="text-decoration: none; color:white;">Ubah Password</a>
+                    </button>
+                </div>
             </div>
             <hr class="col-11 mt-4 color-white bg-white text-white">
             <div class="row mt-4 ml-5">
@@ -290,18 +194,26 @@
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Id Pelanggan</label>
+                                    <label>Nama Pelanggan</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Kshiti123</p>
+                                    <p><?php echo $result['name'] ?></p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Nama Lengkap</label>
+                                    <label>Email</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Kshiti Ghelani</p>
+                                    <p><?php echo $result['email'] ?></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Jenis Kelamin</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><?php echo $result['jeniskelamin'] ?></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -309,7 +221,7 @@
                                     <label>Alamat</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Bandung</p>
+                                    <p><?php echo $result['address'] ?></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -317,23 +229,15 @@
                                     <label>Telepon</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>123 456 7890</p>
+                                    <p><?php echo $result['telephone'] ?></p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Tanggal Lahir</label>
+                                    <label>Tempat, Tanggal Lahir</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>06 Juni 2006</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Tempat Lahir</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>Banjarmasin</p>
+                                    <p><?php echo $result['tempatlahir'] ?>, <?php echo $result['tanggallahir'] ?></p>
                                 </div>
                             </div>
                         </div>

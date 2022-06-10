@@ -2,10 +2,10 @@
 include_once("config.php");
 
 // ambil data di URL
-$id = $_GET["id"];
+$id = 1;
 
 // query data mahasiswa berdasarkan id
-$result = mysqli_query($mysqli, "SELECT * FROM users INNER JOIN role ON users.role_id = role.idrole INNER JOIN genders ON users.gender_id = genders.idjeniskelamin WHERE id = '$id'");
+$result = mysqli_query($mysqli, "SELECT * FROM users INNER JOIN roles ON users.role_id = roles.idrole INNER JOIN genders ON users.gender_id = genders.idjeniskelamin WHERE id = '$id'");
 $result = mysqli_fetch_array($result);
 
 // var_dump($result);
@@ -34,12 +34,14 @@ if ( isset($_POST["editprofile"])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit User</title>
 </head>
+
 <body>
     <h1>Edit</h1>
     <form action="" method="post" enctype="multipart/form-data">
@@ -55,7 +57,7 @@ if ( isset($_POST["editprofile"])) {
                 <label for="name">Nama Lengkap : </label>
                 <input type="text" name="name" id="name" value="<?php echo $result['name'] ?>">
             </li>
-            
+
             <li>
                 <label for="address">Alamat : </label>
                 <input type="text" name="address" id="address" value="<?php echo $result['address'] ?>">
@@ -76,18 +78,19 @@ if ( isset($_POST["editprofile"])) {
                 <label for="gender">Jenis Kelamin :</label>
                 <select id="gender" name="gender">
                     <?php if($result["gender_id"] == 1 ){ ?>
-                <option value="1" selected >Pria</option>
-                <option value="2">Wanita</option>
+                    <option value="1" selected>Pria</option>
+                    <option value="2">Wanita</option>
                     <?php }else{?>
-                <option value="1">Pria</option>
-                <option value="2" selected>Wanita</option>
+                    <option value="1">Pria</option>
+                    <option value="2" selected>Wanita</option>
                     <?php }?>
                 </select>
             </li>
             <li>
-				<button type="submit" name="editprofile">Edit Profile</button>
-			</li>
+                <button type="submit" name="editprofile">Edit Profile</button>
+            </li>
         </ul>
     </form>
 </body>
+
 </html>
