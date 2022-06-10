@@ -51,8 +51,7 @@ if( isset($_POST["submit"]) ) {
     <div class="container-scroller">
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="/"><img src="../../public/assets/adminAssets/images/logo.svg"
-                        alt="logo" /></a>
+                <a class="navbar-brand brand-logo font-weight-bold" href="/">Warshop</a>
                 <a class="navbar-brand brand-logo-mini" href="/"><img
                         src="../../public/assets/adminAssets/images/logo-mini.svg" alt="logo" /></a>
             </div>
@@ -73,7 +72,7 @@ if( isset($_POST["submit"]) ) {
                             </div>
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="../../belogout.php">
                                 <i class="mdi mdi-logout me-2 text-primary"></i> Logout </a>
                         </div>
                     </li>
@@ -131,13 +130,13 @@ if( isset($_POST["submit"]) ) {
                                 <div class="card-header">
                                     <a style="text-decoration: none;" class="text-dark" href="index.php">Produk / </a>
                                     <a style="text-decoration: none;" class="text-dark font-weight-bold"
-                                        href="create.php">Add
-                                        Product</a>
+                                        href="create.php">Tambah
+                                        Produk</a>
                                 </div>
                                 <div class="card-body">
                                     <form action="" method="post" enctype="multipart/form-data">
                                         <div class="form-group">
-                                            <label for="namabarang">Name Barang</label>
+                                            <label for="namabarang">Nama Produk</label>
                                             <input type="text" name="namabarang" class="form-control" id="namabarang">
                                         </div>
                                         <div class="form-group">
