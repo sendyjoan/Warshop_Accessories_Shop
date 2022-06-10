@@ -1,3 +1,11 @@
+<?php
+session_start();
+if ( isset($_SESSION["email"])) {
+   echo "<script>
+   document.location.href = 'auth/login.php';
+   </script>";
+}
+?>
 <!DOCTYPE html>
 <html>
 
