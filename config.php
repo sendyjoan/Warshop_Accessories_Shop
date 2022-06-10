@@ -51,7 +51,7 @@ function addproduct($data){
 	$ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
 	$ekstensiGambar = explode('.', $namaFile);
 	$ekstensiGambar = strtolower(end($ekstensiGambar));
-	
+
 	if( !in_array($ekstensiGambar, $ekstensiGambarValid) ) {
 		echo "<script>
 				alert('yang anda upload bukan gambar!');
@@ -62,6 +62,7 @@ function addproduct($data){
 	$namaFileBaru = uniqid();
 	$namaFileBaru .= '.';
 	$namaFileBaru .= $ekstensiGambar;
+
 
 	move_uploaded_file($tmpName, 'public/assets/product_img/' . $namaFileBaru);
 

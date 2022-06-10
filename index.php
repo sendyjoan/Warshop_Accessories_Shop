@@ -3,6 +3,7 @@
 include_once("config.php");
 // Fetch all users data from database
  $result = mysqli_query($mysqli, "SELECT * FROM products ORDER BY idproduct ASC LIMIT 4");
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,7 +20,7 @@ include_once("config.php");
     <meta name="author" content="" />
     <link rel="shortcut icon" href="public/assets/images/favicon.png" type="">
 
-    <title> SLM | Home </title>
+    <title> Warshop | Home </title>
 
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="public/assets/css/bootstrap.css" />
@@ -54,7 +55,7 @@ include_once("config.php");
                 <nav class="navbar navbar-expand-lg custom_nav-container ">
                     <a class="navbar-brand" href="index.php">
                         <span>
-                            SLM
+                            Warshop
                         </span>
                     </a>
 
@@ -158,7 +159,7 @@ include_once("config.php");
                                 <div class="col-md-7 col-lg-6">
                                     <div class="detail-box">
                                         <h1 class="mb-5">
-                                            SLM Online Shop
+                                            Warshop Online Shop
                                         </h1>
                                         <p>
                                             UMKM Kerajinan Tas dan Dompet Mojokerto merupakan usaha menengah yang
@@ -182,7 +183,7 @@ include_once("config.php");
                                 <div class="col-md-7 col-lg-6 ">
                                     <div class="detail-box">
                                         <h1>
-                                            SLM Online Shop
+                                            Warshop Online Shop
                                         </h1>
                                         <p>
                                             Sebagai salah satu pembuat kerajinan tangan tas dan dompet, UMKM ini
@@ -216,8 +217,7 @@ include_once("config.php");
         <div class="container">
             <div class="heading_container heading_center">
                 <h2>
-                    Produk Kami
-                </h2>
+                    Produk Kami </h2>
             </div>
 
             <ul class="filters_menu">
@@ -311,15 +311,17 @@ include_once("config.php");
                         }
                     ?>
                 </div>
-            </div>
-            <div class="btn-box">
-                <a href="product.php">
-                    Lihat Semua
-                </a>
+                <div class="btn-box">
+                    <a href="product.php">
+                        Lihat Semua
+                    </a>
+                </div>
             </div>
         </div>
     </section>
     <!-- end product section -->
+
+
 
     <!-- footer section -->
     <footer class="footer_section">
@@ -356,7 +358,7 @@ include_once("config.php");
                 <div class="col-md-4 footer-col">
                     <div class="footer_detail">
                         <a href="" class="footer-logo">
-                            SLM
+                            Warshop
                         </a>
                         <p>
                             UMKM Kerajinan Tas dan Dompet Mojokerto merupakan usaha menengah yang bergerak pada sektor

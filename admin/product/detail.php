@@ -1,3 +1,14 @@
+<?php
+// include database connection file
+include_once("../../config.php");
+ 
+// Get id from URL to delete that user
+$id = $_GET['id'];
+ 
+// Delete user row from table based on given id
+$result = mysqli_query($mysqli, "SELECT * FROM products WHERE idproduct=$id");
+$result = mysqli_fetch_array($result);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +16,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>SLM Admin</title>
+    <title>Warshop Admin</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../public/assets/adminAssets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../public/assets/adminAssets/vendors/css/vendor.bundle.base.css">
@@ -82,7 +93,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="index.php">
                             <span class="menu-title">Products Table</span>
                             <i class="mdi mdi-table-large menu-icon"></i>
                         </a>
@@ -104,24 +115,44 @@
                                 <div class="card-body">
                                     <table class="table table-striped table-hover">
                                         <tr>
-                                            <th>Product Id</th>
-                                            <td>1</td>
+                                            <th>Id</th>
+                                            <td><?php echo $result['idproduct'] ?></td>
                                         </tr>
                                         <tr>
-                                            <th>Name</th>
-                                            <td>Kacang</td>
+                                            <th>Nama Barang</th>
+                                            <td><?php echo $result['namabarang'] ?></td>
                                         </tr>
                                         <tr>
-                                            <th>Price</th>
-                                            <td>5555</td>
+                                            <th>Ringkasan</th>
+                                            <td><?php echo $result['ringkasan'] ?></td>
                                         </tr>
                                         <tr>
-                                            <th>Stock</th>
-                                            <td>5555</td>
+                                            <th>Deskripsi</th>
+                                            <td><?php echo $result['deskripsi'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Kategori</th>
+                                            <td>
+                                                <?php 
+                                                $r = $result['category_id'];
+                                                $kategori = mysqli_query($mysqli, "SELECT kategori FROM categories where idkategori = $r "); 
+                                                $data = mysqli_fetch_array($kategori);
+                                                echo $data['kategori'];
+                                            ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Harga</th>
+                                            <td>Rp.<?php echo $result['harga'] ?>,-</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Stok</th>
+                                            <td><?php echo $result['stock'] ?></td>
                                         </tr>
                                         <tr>
                                             <th>Picture</th>
-                                            <td><img width="100px" class="rounded" src="#">
+                                            <td><img width="100px" class="rounded"
+                                                    src="../../public/assets/product_img/<?php echo $result['gambar'] ?>">
                                             </td>
                                         </tr>
                                     </table>
@@ -136,7 +167,7 @@
         </div>
         <footer class="footer">
             <div class="container-fluid d-flex justify-content-between">
-                <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright ©SLM
+                <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright ©Warshop
                     2022</span>
                 <span class="float-none float-sm-end mt-1 mt-sm-0 text-end">Feel free using this website!</span>
             </div>
