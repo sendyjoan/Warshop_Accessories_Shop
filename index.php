@@ -1,3 +1,9 @@
+<?php
+// Create database connection using config file
+include_once("config.php");
+// Fetch all users data from database
+ $result = mysqli_query($mysqli, "SELECT * FROM products ORDER BY idproduct ASC LIMIT 4");
+?>
 <!DOCTYPE html>
 <html>
 
