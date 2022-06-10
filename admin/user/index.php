@@ -1,7 +1,7 @@
 <?php
     include_once("../../config.php");
 
-    $result = mysqli_query($mysqli, "SELECT * FROM users INNER JOIN roles ON users.role_id = roles.idrole INNER JOIN genders ON users.gender_id = genders.idjeniskelamin WHERE role_id = 1;");
+    $result = mysqli_query($mysqli, "SELECT * FROM users INNER JOIN roles ON users.role_id = roles.idrole INNER JOIN genders ON users.gender_id = genders.idjeniskelamin ;");
 ?>
 <!DOCTYPE html>
 <html lang="en">

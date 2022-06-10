@@ -3,7 +3,7 @@
 
     if ( isset($_POST["createadmin"])) {
         // var_dump($_POST);
-        if( registrasi($_POST) > 0){
+        if( createAdmin($_POST) > 0){
             echo "<script>
                 alert('Selamat admin telah terdaftar!')
                 document.location.href = 'product/';
