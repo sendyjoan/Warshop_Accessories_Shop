@@ -1,6 +1,13 @@
 <?php
 include_once("../../config.php");
 
+session_start();
+    if ( isset($_SESSION["role"])) {
+        echo "<script>
+       document.location.href = '../../auth/login.php';
+       </script>";
+    }
+
 // ambil data di URL
 // $id = 1;
 $id = $_GET["id"];
@@ -25,7 +32,7 @@ if ( isset($_POST["editprofile"])) {
 		echo "
 			<script>
 				alert('Profile gagal diubah!');
-				document.location.href = 'edit_profile.php';
+				document.location.href = '../index.php';
 			</script>
 		";
 	}
@@ -110,7 +117,7 @@ if ( isset($_POST["editprofile"])) {
                             </li>
                         </ul>
                         <div class="user_option">
-                            <a href="index.php" class="user_link text-warning">
+                            <a href="index.php class="user_link text-warning">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
                             <a class="cart_link" href="../chart.php">
@@ -186,7 +193,7 @@ if ( isset($_POST["editprofile"])) {
         <span class="ml-5 pb-5">
             <i class="fa fa-arrow-left text-sm pr-2 " style="color: #ffbe33">
             </i>
-            <a class="text-md font-medium" href="index.php" style="color: #ffbe33">Kembali</a>
+            <a class="text-md font-medium" href="index.php?id=<?php echo $id ?>" style="color: #ffbe33">Kembali</a>
         </span>
         <div align="center">
             <h3 class=" text-white">

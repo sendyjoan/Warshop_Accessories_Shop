@@ -1,6 +1,13 @@
 <?php
     include_once("../../config.php");
 
+    session_start();
+    if ( isset($_SESSION["role"])) {
+        echo "<script>
+       document.location.href = '../../auth/login.php';
+       </script>";
+    }
+
     // ambil data di URL
     $id = $_GET["id"];
     // $id = 1;
@@ -14,14 +21,14 @@
             echo "
 			<script>
 				alert('Profile berhasil diubah!');
-				document.location.href = 'index.php';
+				document.location.href = '../index.php';
 			</script>
 		    ";
         } else {
             echo "
                 <script>
                     alert('Profile gagal diubah!');
-                    document.location.href = 'edit_picture.php';
+                    document.location.href = '../index.php';
                 </script>
             ";
         }
@@ -182,7 +189,7 @@
         <span class="ml-4 pb-5">
             <i class="fa fa-arrow-left text-sm pr-2 " style="color: #ffbe33">
             </i>
-            <a class="text-md font-medium" href="index.php" style="color: #ffbe33">Kembali</a>
+            <a class="text-md font-medium" href="index.php?id=<?php echo $id ?>" style="color: #ffbe33">Kembali</a>
         </span>
         <div align="center">
             <h3 class=" text-white">

@@ -1,6 +1,11 @@
 <?php
 // Create database connection using config file
 session_start();
+    if ( isset($_SESSION["role"])) {
+        echo "<script>
+       document.location.href = '../auth/login.php';
+       </script>";
+    }
 $id = $_SESSION["id"];
 include_once("../config.php");
 // Fetch all users data from database
