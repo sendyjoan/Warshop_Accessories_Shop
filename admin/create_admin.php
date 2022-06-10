@@ -1,29 +1,19 @@
 <?php
-include_once("../../config.php");
+    include_once("../config.php");
 
-// cek apakah tombol submit sudah ditekan atau belum
-if( isset($_POST["submit"]) ) {
-	
-    // var_dump($_POST);
-	// var_dump($_FILES);
-	
-	// cek apakah data berhasil di tambahkan atau tidak
-	if( addproduct($_POST) > 0 ) {
-		echo "
-			<script>
-				alert('data berhasil ditambahkan!');
-				document.location.href = 'index.php';
-			</script>
-		";
-	} else {
-		echo "
-			<script>
-				alert('data gagal ditambahkan!');
-				document.location.href = '#';
-			</script>
-		";
-	}
-}
+    if ( isset($_POST["createadmin"])) {
+        // var_dump($_POST);
+        if( registrasi($_POST) > 0){
+            echo "<script>
+                alert('Selamat admin telah terdaftar!')
+                document.location.href = 'product/';
+                </script>";
+        }else{
+            echo "<script>
+                alert('Proses menambahkan admin gagal!')
+                </script>";
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,27 +24,27 @@ if( isset($_POST["submit"]) ) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Warshop Admin</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="../../public/assets/adminAssets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="../../public/assets/adminAssets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../public/assets/adminAssets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../public/assets/adminAssets/vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="../../public/assets/adminAssets/css/style.css">
+    <link rel="stylesheet" href="../public/assets/adminAssets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="../../public/assets/adminAssets/images/favicon.ico" />
+    <link rel="shortcut icon" href="../public/assets/adminAssets/images/favicon.ico" />
 </head>
 
 <body>
     <div class="container-scroller">
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="/"><img src="../../public/assets/adminAssets/images/logo.svg"
+                <a class="navbar-brand brand-logo" href="/"><img src="../public/assets/adminAssets/images/logo.svg"
                         alt="logo" /></a>
                 <a class="navbar-brand brand-logo-mini" href="/"><img
-                        src="../../public/assets/adminAssets/images/logo-mini.svg" alt="logo" /></a>
+                        src="../public/assets/adminAssets/images/logo-mini.svg" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -65,7 +55,7 @@ if( isset($_POST["submit"]) ) {
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <div class="nav-profile-img">
-                                <img src="../../public/assets/adminAssets/images/faces/face1.jpg" alt="image">
+                                <img src="../public/assets/adminAssets/images/faces/face1.jpg" alt="image">
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
@@ -91,7 +81,7 @@ if( isset($_POST["submit"]) ) {
                     <li class="nav-item nav-profile">
                         <a href="#" class="nav-link">
                             <div class="nav-profile-image">
-                                <img src="../../public/assets/adminAssets/images/faces/face1.jpg" alt="profile">
+                                <img src="../public/assets/adminAssets/images/faces/face1.jpg" alt="profile">
                                 <span class="login-status online"></span>
                                 <!--change to offline or busy as needed-->
                             </div>
@@ -103,19 +93,19 @@ if( isset($_POST["submit"]) ) {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">
+                        <a class="nav-link" href="product/">
                             <span class="menu-title">Tabel Produk</span>
                             <i class="mdi mdi-table-large menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../user/">
+                        <a class="nav-link" href="user/">
                             <span class="menu-title">Tabel Pengguna</span>
                             <i class="mdi mdi-table-large menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../create_admin.php">
+                        <a class="nav-link" href="create_admin.php">
                             <span class="menu-title">Tambah Admin</span>
                             <i class="mdi mdi-home menu-icon"></i>
                         </a>
@@ -129,38 +119,58 @@ if( isset($_POST["submit"]) ) {
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-header">
-                                    <a style="text-decoration: none;" class="text-dark" href="index.php">Produk / </a>
                                     <a style="text-decoration: none;" class="text-dark font-weight-bold"
-                                        href="create.php">Add
-                                        Product</a>
+                                        href="create.php">Tambah Admin</a>
                                 </div>
                                 <div class="card-body">
                                     <form action="" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" name="role" id="role" value="2">
                                         <div class="form-group">
-                                            <label for="namabarang">Name Barang</label>
-                                            <input type="text" name="namabarang" class="form-control" id="namabarang">
+                                            <label for="email">Email : </label>
+                                            <input type="email" name="email" id="email" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label for="ringkasan">Ringkasan</label>
-                                            <input type="text" name="ringkasan" class="form-control" id="ringkasan">
+                                            <label for="name">Nama Lengkap : </label>
+                                            <input type="text" name="name" id="name" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label for="deskripsi">Deskripsi</label>
-                                            <input type="text" name="deskripsi" class="form-control" id="deskripsi">
+                                            <label for="address">Alamat : </label>
+                                            <input type="text" name="address" id="address" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label for="harga">Harga</label>
-                                            <input type="number" name="harga" class="form-control" id="harga">
+                                            <label for="telephone">No. Telephone : </label>
+                                            <input type="telephone" name="telephone" id="telephone"
+                                                class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label for="stock">Stock</label>
-                                            <input type="number" name="stock" class="form-control" id="stock">
+                                            <label for="tanggallahir">Tanggal Lahir : </label>
+                                            <input type="date" name="tanggallahir" id="tanggallahir"
+                                                class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label for="gambar">Gambar</label>
-                                            <input type="file" class="form-control" name="gambar"></br>
+                                            <label for="tempatlahir">Tempat Lahir : </label>
+                                            <input type="text" name="tempatlahir" id="tempatlahir" class="form-control">
                                         </div>
-                                        <button type="submit" name="submit" class="btn btn-primary">Tambah</button>
+                                        <div class="form-group">
+                                            <label for="password">Password : </label>
+                                            <input type="password" name="password1" id="password1" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password">Konfirmasi Password</label>
+                                            <input type="password" name="password2" id="password2" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="gender">Jenis Kelamin</label>
+                                            <select id="gender" name="gender" class="form-control">
+                                                <option value="1">Pria</option>
+                                                <option value="2">Wanita</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="picture">Upload Foto Profil</label>
+                                            <input type="file" name="picture" id="picture" class="form-control">
+                                        </div>
+                                        <button type="submit" name="createadmin" class="btn btn-primary">Tambah</button>
                                     </form>
                                 </div>
                             </div>
@@ -181,20 +191,20 @@ if( isset($_POST["submit"]) ) {
     </footer>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="../../public/assets/adminAssets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="../public/assets/adminAssets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
-    <script src="../../public/assets/adminAssets/vendors/chart.js/Chart.min.js"></script>
-    <script src="../../public/assets/adminAssets/js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="../public/assets/adminAssets/vendors/chart.js/Chart.min.js"></script>
+    <script src="../public/assets/adminAssets/js/jquery.cookie.js" type="text/javascript"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="../../public/assets/adminAssets/js/off-canvas.js"></script>
-    <script src="../../public/assets/adminAssets/js/hoverable-collapse.js"></script>
-    <script src="../../public/assets/adminAssets/js/misc.js"></script>
+    <script src="../public/assets/adminAssets/js/off-canvas.js"></script>
+    <script src="../public/assets/adminAssets/js/hoverable-collapse.js"></script>
+    <script src="../public/assets/adminAssets/js/misc.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
-    <script src="../../public/assets/adminAssets/js/dashboard.js"></script>
-    <script src="../../public/assets/adminAssets/js/todolist.js"></script>
+    <script src="../public/assets/adminAssets/js/dashboard.js"></script>
+    <script src="../public/assets/adminAssets/js/todolist.js"></script>
     <!-- End custom js for this page -->
 </body>
 

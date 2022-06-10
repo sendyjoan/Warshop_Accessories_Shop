@@ -2,7 +2,7 @@
 include_once("config.php");
 
 // ambil data di URL
-$id = $_GET["id"];
+$id = 20;
 
 // query data mahasiswa berdasarkan id
 $product = mysqli_query($mysqli, "SELECT * FROM products WHERE idproduct = $id");
@@ -26,7 +26,7 @@ if( isset($_POST["ubah"]) ) {
 		echo "
 			<script>
 				alert('data gagal diubah!');
-				document.location.href = 'product.php';
+				document.location.href = 'edit_product.php';
 			</script>
 		";
 	}
@@ -37,40 +37,42 @@ if( isset($_POST["ubah"]) ) {
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Update data product</title>
-</head>
-<body>
-	<h1>Update data product</h1>
 
-	<form action="" method="post" enctype="multipart/form-data">
-		<ul>
+<head>
+    <title>Update data product</title>
+</head>
+
+<body>
+    <h1>Update data product</h1>
+
+    <form action="" method="post" enctype="multipart/form-data">
+        <ul>
             <input type="hidden" name="idproduct" value="<?= $product["idproduct"]; ?>">
-		    <input type="hidden" name="gambarLama" value="<?= $product["gambar"]; ?>">
-			<li>
-				<label for="namabarang">Nama Barang : </label>
-				<input type="text" name="namabarang" id="namabarang" required value = "<?= $product['namabarang'] ?>">
-			</li>
-			<li>
-				<label for="ringkasan">Ringkasan : </label>
-				<input type="text" name="ringkasan" id="ringkasan" value = "<?= $product['ringkasan'] ?>">
-			</li>
-			<li>
-				<label for="deskripsi">Deskripsi :</label>
-				<input type="text" name="deskripsi" id="deskripsi" value = "<?= $product['deskripsi'] ?>">
-			</li>
-			<li>
-				<label for="harga">Harga :</label>
-				<input type="number" name="harga" id="harga" value = "<?= $product['harga'] ?>">
-			</li>
+            <input type="hidden" name="gambarLama" value="<?= $product["gambar"]; ?>">
             <li>
-				<label for="stock">Stock :</label>
-				<input type="number" name="stock" id="stock" value = "<?= $product['stock'] ?>">
-			</li>
+                <label for="namabarang">Nama Barang : </label>
+                <input type="text" name="namabarang" id="namabarang" required value="<?= $product['namabarang'] ?>">
+            </li>
+            <li>
+                <label for="ringkasan">Ringkasan : </label>
+                <input type="text" name="ringkasan" id="ringkasan" value="<?= $product['ringkasan'] ?>">
+            </li>
+            <li>
+                <label for="deskripsi">Deskripsi :</label>
+                <input type="text" name="deskripsi" id="deskripsi" value="<?= $product['deskripsi'] ?>">
+            </li>
+            <li>
+                <label for="harga">Harga :</label>
+                <input type="number" name="harga" id="harga" value="<?= $product['harga'] ?>">
+            </li>
+            <li>
+                <label for="stock">Stock :</label>
+                <input type="number" name="stock" id="stock" value="<?= $product['stock'] ?>">
+            </li>
             <li>
                 <label for="category">Pilih Kategori :</label>
                 <select id="category" name="category">
-					<?php
+                    <?php
 						$kategori = mysqli_query($mysqli, "SELECT * FROM categories ORDER BY idkategori ASC");
 						while ($data = mysqli_fetch_array($kategori)) {
                             if ($data['idkategori'] == $product['category_id']) {
@@ -82,13 +84,13 @@ if( isset($_POST["ubah"]) ) {
 					?>
                 </select>
             </li>
-			<li>
-				<label for="gambar">Gambar :</label>
-				<input type="file" name="gambar" id="gambar">
-			</li>
-			<li>
-				<button type="submit" name="ubah">Ubah Data</button>
-			</li>
-		</ul>
+            <li>
+                <label for="gambar">Gambar :</label>
+                <input type="file" name="gambar" id="gambar">
+            </li>
+            <li>
+                <button type="submit" name="ubah">Ubah Data</button>
+            </li>
+        </ul>
     </form>
 </body>

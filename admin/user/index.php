@@ -1,7 +1,7 @@
 <?php
     include_once("../../config.php");
 
-    $result = mysqli_query($mysqli, "SELECT * FROM users INNER JOIN roles ON users.role_id = roles.idrole INNER JOIN genders ON users.gender_id = genders.idjeniskelamin;");
+    $result = mysqli_query($mysqli, "SELECT * FROM users INNER JOIN roles ON users.role_id = roles.idrole INNER JOIN genders ON users.gender_id = genders.idjeniskelamin WHERE role_id = 1;");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,6 +91,12 @@
                             <i class="mdi mdi-table-large menu-icon"></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../create_admin.php">
+                            <span class="menu-title">Tambah Admin</span>
+                            <i class="mdi mdi-home menu-icon"></i>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <div class="main-panel">
@@ -119,7 +125,7 @@
                                             ?>
                                             <tr>
                                                 <td><img class="rounded" width="200px;" height="200px;"
-                                                        src="../../public/assets/product_img/<?php echo $data['picture'] ?>"
+                                                        src="../../public/assets/user_img/<?php echo $data['picture'] ?>"
                                                         alt=""></td>
                                                 <td><?php echo $data['name']?></td>
                                                 <td><?php echo $data['email'] ?></td>
