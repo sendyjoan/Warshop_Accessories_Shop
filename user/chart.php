@@ -105,32 +105,6 @@ $result = mysqli_fetch_array($result);
                                 </button>
                             </div>
                         </div>
-                        <div class=" p-5 bg-gray-800 rounded overflow-visible">
-                            <span class="text-xl font-medium text-gray-100 block pb-3 pt-5 mt-5"
-                                style="margin-top:20px;">Pesanan</span>
-                            <div class="flex justify-center flex-col pt-3">
-                                <label class="text-xs text-gray-400 mt-4 mb-1">Total Pembayaran</label>
-                                <input type="text" style="color: #ffbe33;"
-                                    class="focus:outline-none w-full h-6 bg-gray-800 placeholder-gray-300 text-sm border-b border-gray-600 py-4 font-bold"
-                                    placeholder="Rp 50.000,-">
-                            </div>
-                            <div class="flex justify-center flex-col pt-3">
-                                <label class="text-xs text-gray-400 mt-4 mb-1">Nama Penerima</label>
-                                <input type="text"
-                                    class="focus:outline-none w-full h-6 bg-gray-800 text-white placeholder-gray-300 text-sm border-b border-gray-600 py-4"
-                                    placeholder="Giga Tamarashvili">
-                            </div>
-                            <div class="flex justify-center flex-col pt-3">
-                                <label class="text-xs text-gray-400 mt-4 mb-1">Alamat Penerima</label>
-                                <input type="text"
-                                    class="focus:outline-none w-full h-6 bg-gray-800 text-white placeholder-gray-300 text-sm border-b border-gray-600 py-4"
-                                    placeholder="Jalan ABCDE, Kota Baru">
-                            </div>
-                            <button class="h-12 font-bold w-full rounded focus:outline-none text-light"
-                                style="background-color: #ffbe33; color:#202c34; margin-top:60px;">
-                                <a href="payment.php">Check Out</a>
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>

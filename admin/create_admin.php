@@ -115,6 +115,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="sale/">
+                            <span class="menu-title">Tabel Penjualan</span>
+                            <i class="mdi mdi-table-large menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="create_admin.php">
                             <span class="menu-title">Tambah Admin</span>
                             <i class="mdi mdi-home menu-icon"></i>

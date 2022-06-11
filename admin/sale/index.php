@@ -97,8 +97,14 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">
+                        <a class="nav-link" href="../user/">
                             <span class="menu-title">Tabel Pengguna</span>
+                            <i class="mdi mdi-table-large menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">
+                            <span class="menu-title">Tabel Penjualan</span>
                             <i class="mdi mdi-table-large menu-icon"></i>
                         </a>
                     </li>
