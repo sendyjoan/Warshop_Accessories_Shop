@@ -4,6 +4,7 @@
 
     unset($_SESSION["email"]);
     unset($_SESSION["role"]);
+    unset($_SESSION["keranjang"]);
 
      session_unset();
      session_destroy();
