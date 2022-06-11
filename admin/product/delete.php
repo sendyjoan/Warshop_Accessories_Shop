@@ -1,6 +1,12 @@
 <?php
 // include database connection file
 require("../../config.php");
+session_start();
+ if (!isset($_SESSION["role"])) {
+    echo "<script>
+    document.location.href = '../../auth/login.php';
+    </script>";
+ }
  
 // Get id from URL to delete that user
 $id = $_GET['id'];

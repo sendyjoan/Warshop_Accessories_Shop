@@ -17,14 +17,14 @@ if ( isset($_POST["editprofile"])) {
 		echo "
 			<script>
 				alert('Profile berhasil diubah!');
-				document.location.href = 'showuser.php';
+				document.location.href = 'index.php';
 			</script>
 		";
 	} else {
 		echo "
 			<script>
 				alert('Profile gagal diubah!');
-				document.location.href = 'showuser.php';
+				document.location.href = 'edit_profile.php';
 			</script>
 		";
 	}

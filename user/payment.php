@@ -20,21 +20,24 @@
         Pembayaran
     </div>
     <form>
-        <span id="card-header" class="text-gray-100">Total Pembayaran</span>
-        <div class="row row-1" style="color: #ffbe33">
+        <span id="card-header" class="text-gray-100 mt-3">Total Pembayaran</span>
+        <div class="row row-1 mb-3" style="color: #ffbe33">
             Rp95.000
         </div>
-        <span id="card-header" class="text-gray-100">Nomor Rekening</span>
-        <div class="row row-1" style="color: #ffbe33">
+        <span id="card-header" class="text-gray-100 mt-3">Nomor Rekening</span>
+        <div class="row row-1 mb-3" style="color: #ffbe33">
             9999 9999 9999 9999
         </div>
-        <span id="card-header" class="text-gray-100">Upload Bukti Pembayaran</span>
-        <div class="row row-1">
+        <span id="card-header" class="text-gray-100 mt-3">Upload Bukti Pembayaran</span>
+        <div class="row row-1 mb-3">
             <div class="col-7" style="color: #ffbe33">
                 <input type="file">
             </div>
         </div>
-        <button class="h-12 w-full rounded focus:outline-none text-white mt-3" style="background-color: #ffbe33">Bayar
-            Sekarang</button>
+        <div style=" margin-top:50px;">
+            <button class="h-12 w-full rounded focus:outline-none font-bold mt-3"
+                style="background-color: #ffbe33; color:#202c34;">Bayar
+                Sekarang</button>
+        </div>
     </form>
 </div>

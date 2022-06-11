@@ -1,11 +1,20 @@
 <?php
     include_once("../../config.php");
 
-    // $id = $_GET['id'];
-    $id = 1;
+    $id = $_GET['id'];
 
     $result = mysqli_query($mysqli, "SELECT * FROM users INNER JOIN roles ON users.role_id = roles.idrole INNER JOIN genders ON users.gender_id = genders.idjeniskelamin WHERE id = '$id'");
     $result = mysqli_fetch_array($result);
+    session_start();
+    if ( isset($_SESSION["role"])) {
+        echo "<script>
+       document.location.href = '../../auth/login.php';
+       </script>";
+    }elseif ( !isset($_SESSION["email"])) {
+        echo "<script>
+       document.location.href = '../../auth/login.php';
+       </script>";
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -85,7 +94,7 @@
                             </li>
                         </ul>
                         <div class="user_option">
-                            <a href="index.php" class="user_link text-warning">
+                            <a href="" class="user_link text-warning">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
                             <a class="cart_link" href="../chart.php">
@@ -165,7 +174,8 @@
                         <img src="../../public/assets/user_img/<?php echo $result['picture']?>"
                             style="max-height: 200px; max-width: 200px;" />
                         <div class="file btn btn-lg btn-primary">
-                            <a href="edit_picture.php" style="text-decoration: none; color:white;">Ubah Foto</a>
+                            <a href="edit_picture.php?id=<?php echo $id ?>"
+                                style="text-decoration: none; color:white;">Ubah Foto</a>
                         </div>
                     </div>
                 </div>
@@ -181,12 +191,14 @@
                 </div>
                 <div class="col-md-2">
                     <button class="profile-edit-btn">
-                        <a href="edit_profile.php" style="text-decoration: none; color:white;">Edit Profil</a>
+                        <a href="edit_profile.php?id=<?php echo $id ?>" style="text-decoration: none; color:white;">Edit
+                            Profil</a>
                     </button>
                 </div>
                 <div class="col-md-3 ml-5 ">
                     <button class="profile-edit-btn bg-dark">
-                        <a href="edit_password.php" style="text-decoration: none; color:white;">Ubah Password</a>
+                        <a href="edit_password.php?id=<?php echo $id ?>"
+                            style="text-decoration: none; color:white;">Ubah Password</a>
                     </button>
                 </div>
             </div>

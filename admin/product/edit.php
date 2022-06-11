@@ -1,5 +1,11 @@
 <?php
 include_once("../../config.php");
+session_start();
+ if (!isset($_SESSION["role"])) {
+    echo "<script>
+    document.location.href = '../../auth/login.php';
+    </script>";
+ }
 
 // ambil data di URL
 $id = $_GET["id"];
@@ -7,6 +13,11 @@ $id = $_GET["id"];
 // query data mahasiswa berdasarkan id
 $product = mysqli_query($mysqli, "SELECT * FROM products WHERE idproduct = $id");
 $product = mysqli_fetch_array($product);
+
+$email = $_SESSION["email"];
+
+    $profile = mysqli_query($mysqli, "SELECT * FROM users WHERE email = '$email'");
+    $profile = mysqli_fetch_array($profile);
 
 // var_dump($product);
 
@@ -78,7 +89,7 @@ if( isset($_POST["ubah"]) ) {
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
-                                <p class="mb-1 text-black">Sendy Joan</p>
+                                <p class="mb-1 text-black"><?php echo $profile["name"] ?></p>
                             </div>
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -105,7 +116,7 @@ if( isset($_POST["ubah"]) ) {
                                 <!--change to offline or busy as needed-->
                             </div>
                             <div class="nav-profile-text d-flex flex-column">
-                                <span class="font-weight-bold mb-2">Sendy Joan</span>
+                                <span class="font-weight-bold mb-2"><?php echo $profile["name"] ?></span>
                                 <span class="text-secondary text-small">Admin</span>
                             </div>
                             <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>

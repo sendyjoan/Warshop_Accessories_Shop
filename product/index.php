@@ -1,5 +1,16 @@
 <?php
 // Create database connection using config file
+session_start();
+    if ( isset($_SESSION["role"])) {
+        echo "<script>
+       document.location.href = '../auth/login.php';
+       </script>";
+    }elseif ( !isset($_SESSION["email"])) {
+        echo "<script>
+       document.location.href = '../auth/login.php';
+       </script>";
+    }
+$id = $_SESSION["id"];
 include_once("../config.php");
 // Fetch all users data from database
  $result = mysqli_query($mysqli, "SELECT * FROM products ORDER BY idproduct ASC");
@@ -70,14 +81,14 @@ include_once("../config.php");
                                 <a class="nav-link" href="../user/">Home</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.php">Produk</a>
+                                <a class="nav-link" href="index.php">Produk<span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="../user/about.php">Tentang</a>
                             </li>
                         </ul>
                         <div class="user_option">
-                            <a href="../user/profile/" class="user_link">
+                            <a href="../user/profile/index.php?id=<?php echo $id ?>" class="user_link">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
                             <a class="cart_link" href="../user/chart.php">
@@ -182,7 +193,7 @@ include_once("../config.php");
                                         <h6>
                                             Rp.<?php echo $user_data['harga'] ?>,-
                                         </h6>
-                                        <a href="auth/login.php">
+                                        <a href="../user/chart.php">
                                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                                 viewBox="0 0 456.029 456.029"
