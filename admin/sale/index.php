@@ -1,7 +1,7 @@
 <?php
     include_once("../../config.php");
 
-    $result = mysqli_query($mysqli, "SELECT * FROM users INNER JOIN roles ON users.role_id = roles.idrole INNER JOIN genders ON users.gender_id = genders.idjeniskelamin WHERE role_id = 1;");
+    $result = mysqli_query($mysqli, "SELECT * FROM pembelian INNER JOIN users ON pembelian.iduser = users.id");
 
     session_start();
     if (!isset($_SESSION["role"])) {
@@ -122,11 +122,10 @@
                                     <table class="table table-striped table-hover">
                                         <thead>
                                             <tr>
-                                                <th>Foto</th>
-                                                <th>Nama</th>
-                                                <th>Email</th>
-                                                <th>Jenis Kelamin</th>
-                                                <th>Telepon</th>
+                                                <th>Nama Pengguna</th>
+                                                <th>Tanggal Pembelian</th>
+                                                <th>Total Belanja</th>
+                                                <th>Bukti Pembayaran</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -135,18 +134,15 @@
                                                 while($data = mysqli_fetch_array($result)) {         
                                             ?>
                                             <tr>
-                                                <td><img class="rounded" width="200px;" height="200px;"
-                                                        src="../../public/assets/user_img/<?php echo $data['picture'] ?>"
-                                                        alt=""></td>
                                                 <td><?php echo $data['name']?></td>
-                                                <td><?php echo $data['email'] ?></td>
-                                                <td><?php echo $data['jeniskelamin'] ?></td>
-                                                <td><?php echo $data['telephone'] ?></td>
+                                                <td><?php echo $data['tanggalpembelian'] ?></td>
+                                                <td><?php echo $data['totalpembelian'] ?></td>
+                                                <td><img class="rounded" width="200px;" height="200px;"
+                                                        src="../../public/assets/payment_img/<?php echo $data['buktipembayaran'] ?>"
+                                                        alt=""></td>
                                                 <td>
                                                     <a class="btn btn-info"
                                                         href="detail.php?id='<?php echo $data['id']?>'">Detail</a>
-                                                    <a class="btn btn-danger"
-                                                        href="delete.php?id='<?php echo $data['id']?>'">Hapus</a>
                                                 </td>
                                             </tr>
                                             <?php
