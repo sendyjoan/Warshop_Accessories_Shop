@@ -55,11 +55,12 @@ if (isset($_POST["bayarchart"]) && isset($_SESSION["chart"])) {
             $subtot = mysqli_query($mysqli, "SELECT harga FROM products WHERE idproduct = '$id_product'");
             $subtot = mysqli_fetch_array($subtot);
             $subtot = $subtot["harga"] * $jumlah;
-            // var_dump($id_product);
-            // var_dump($idpembelian);
-            // var_dump($jumlah);
-            // var_dump($subtot);
             mysqli_query($mysqli, "INSERT INTO chart VALUES ('', '$id_product', '$idpembelian', '$jumlah', '$subtot')");
+            $stock = mysqli_query($mysqli, "SELECT stock FROM products WHERE idproduct = '$id_product'");
+            $stock = mysqli_fetch_array($stock);
+            $stock = $stock["stock"] - $jumlah;
+            mysqli_query($mysqli, "UPDATE products SET stock = '$stock' WHERE idproduct = '$id_product'");
+
         }
 
         if (mysqli_affected_rows($mysqli) > 0) {
