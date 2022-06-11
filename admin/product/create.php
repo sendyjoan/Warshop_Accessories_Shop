@@ -75,7 +75,7 @@ if( isset($_POST["submit"]) ) {
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <div class="nav-profile-img">
-                                <img src="../../public/assets/adminAssets/images/faces/face1.jpg" alt="image">
+                                <img src="../../public/assets/adminAssets/images/faces/face1.png" alt="image">
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
@@ -101,7 +101,7 @@ if( isset($_POST["submit"]) ) {
                     <li class="nav-item nav-profile">
                         <a href="#" class="nav-link">
                             <div class="nav-profile-image">
-                                <img src="../../public/assets/adminAssets/images/faces/face1.jpg" alt="profile">
+                                <img src="../../public/assets/adminAssets/images/faces/face1.png" alt="profile">
                                 <span class="login-status online"></span>
                                 <!--change to offline or busy as needed-->
                             </div>

@@ -2,6 +2,7 @@
     include_once("../../config.php");
 
     $result = mysqli_query($mysqli, "SELECT * FROM users INNER JOIN roles ON users.role_id = roles.idrole INNER JOIN genders ON users.gender_id = genders.idjeniskelamin WHERE role_id = 1;");
+
     session_start();
     if (!isset($_SESSION["role"])) {
        echo "<script>
@@ -52,7 +53,7 @@
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <div class="nav-profile-img">
-                                <img src="../../public/assets/adminAssets/images/faces/face1.jpg" alt="image">
+                                <img src="../../public/assets/adminAssets/images/faces/face1.png" alt="image">
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
@@ -78,7 +79,7 @@
                     <li class="nav-item nav-profile">
                         <a href="#" class="nav-link">
                             <div class="nav-profile-image">
-                                <img src="../../public/assets/adminAssets/images/faces/face1.jpg" alt="profile">
+                                <img src="../../public/assets/adminAssets/images/faces/face1.png" alt="profile">
                                 <span class="login-status online"></span>
                                 <!--change to offline or busy as needed-->
                             </div>

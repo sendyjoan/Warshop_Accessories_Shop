@@ -72,7 +72,7 @@
                             </li>
                         </ul>
                         <div class="user_option">
-                            <a href="../user/profile/" class="user_link">
+                            <a href=".. /user/profile/index.php?id=<?php echo $id ?>" class="user_link">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
                             <a class="cart_link" href="../user/chart.php">

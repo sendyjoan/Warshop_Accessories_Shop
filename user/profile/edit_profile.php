@@ -121,7 +121,7 @@ if ( isset($_POST["editprofile"])) {
                             </li>
                         </ul>
                         <div class="user_option">
-                            <a href="index.php class="user_link text-warning">
+                            <a href="#" class="user_link text-warning">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
                             <a class="cart_link" href="../chart.php">

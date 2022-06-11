@@ -1,14 +1,19 @@
 <?php
+// Create database connection using config file
 session_start();
-if ( isset($_SESSION["role"])) {
-    echo "<script>
-   document.location.href = '../auth/login.php';
-   </script>";
-}elseif ( !isset($_SESSION["email"])) {
-    echo "<script>
-   document.location.href = '../auth/login.php';
-   </script>";
-}
+    if ( isset($_SESSION["role"])) {
+        echo "<script>
+       document.location.href = '../auth/login.php';
+       </script>";
+    }elseif ( !isset($_SESSION["email"])) {
+        echo "<script>
+       document.location.href = '../auth/login.php';
+       </script>";
+    }
+$id = $_SESSION["id"];
+include_once("../config.php");
+// Fetch all users data from database
+ $result = mysqli_query($mysqli, "SELECT * FROM products ORDER BY idproduct ASC");
 ?>
 <!DOCTYPE html>
 <html>
@@ -80,14 +85,14 @@ if ( isset($_SESSION["role"])) {
                                 <a class="nav-link" href="../product/">Produk</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="about.php">Tentang</a>
+                                <a class="nav-link" href="about.php">Tentang <span class="sr-only">(current)</span></a>
                             </li>
                         </ul>
                         <div class="user_option">
-                            <a href="profile/" class="user_link">
+                            <a href="profile/index.php?id=<?php echo $id ?>" class="user_link">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
-                            <a class="cart_link" href="profile/">
+                            <a class="cart_link" href="chart.php">
                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;"

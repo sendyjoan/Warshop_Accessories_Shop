@@ -1,5 +1,16 @@
 <?php
 // Create database connection using config file
+session_start();
+    if ( isset($_SESSION["role"])) {
+        echo "<script>
+       document.location.href = '../auth/login.php';
+       </script>";
+    }elseif ( !isset($_SESSION["email"])) {
+        echo "<script>
+       document.location.href = '../auth/login.php';
+       </script>";
+    }
+$id = $_SESSION["id"];
 include_once("../config.php");
 // Fetch all users data from database
  $result = mysqli_query($mysqli, "SELECT * FROM products ORDER BY idproduct ASC");
@@ -80,14 +91,14 @@ include_once("../config.php");
                                 <a class="nav-link" href="../user/">Home</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.php">Produk</a>
+                                <a class="nav-link" href="index.php">Produk<span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="../user/about.php">Tentang</a>
                             </li>
                         </ul>
                         <div class="user_option">
-                            <a href="../user/profile/" class="user_link">
+                            <a href="../user/profile/index.php?id=<?php echo $id ?>" class="user_link">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
                             <a class="cart_link" href="../user/orders/chart.php">
