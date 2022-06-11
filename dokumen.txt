@@ -1,0 +1,13 @@
+Fitur yang dimiki website :
+    - Login | BE Sudah | Tinggal SESION
+    - Registrasi | BE Sudah | Tinggal Session
+    - Show All Product | Back End Sudah
+    - Show All Product (Searching Nama Product) | BE Tinggal searcing
+    - Show All Product (Filter Kategori) | BE Tinggal Filtering
+    - Show Detail Product | BE Sudah
+    - Create Product Admin | BE Sudah
+    - Edit Product Admin | BE Sudah
+    - Delete Product Admin | BE Sudah
+    - Show ALL User | BE Sudah 
+    - Edit User | BE SUDAH
+    - Hapus User | BE SUDAH
