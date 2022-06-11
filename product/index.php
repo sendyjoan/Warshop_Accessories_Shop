@@ -14,16 +14,6 @@ $id = $_SESSION["id"];
 include_once("../config.php");
 // Fetch all users data from database
  $result = mysqli_query($mysqli, "SELECT * FROM products ORDER BY idproduct ASC");
-
- if (isset($_SESSION["role"])) {
-    echo "<script>
-    document.location.href = '../auth/login.php';
-    </script>";
- }elseif ( !isset($_SESSION["email"])) {
-    echo "<script>
-   document.location.href = '../auth/login.php';
-   </script>";
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -265,7 +255,7 @@ include_once("../config.php");
                                     </div>
                                     <button class="btn btn-dark"
                                         style="color: #ffbe33; background-color:#202c34; border-radius: 15px; padding:4 10 4 10;">
-                                        <a class="text-sm" style="color: #ffbe33;" href="../product/">Lihat
+                                        <a class="text-sm" style="color: #ffbe33;" href="detail_product.php?id=<?php echo $user_data['idproduct'] ?>">Lihat
                                             Detail
                                         </a>
                                     </button>

@@ -1,3 +1,21 @@
+<?php
+    session_start();
+    if ( isset($_SESSION["role"])) {
+        echo "<script>
+       document.location.href = '../auth/login.php';
+       </script>";
+    }elseif ( !isset($_SESSION["email"])) {
+        echo "<script>
+       document.location.href = '../auth/login.php';
+       </script>";
+    }
+    $id = $_GET["id"];
+    include_once("../config.php");
+    // Fetch all users data from database
+    $result = mysqli_query($mysqli, "SELECT * FROM products INNER JOIN categories ON products.category_id = categories.idkategori WHERE idproduct = '$id'");
+    $result = mysqli_fetch_array($result);
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -161,25 +179,33 @@
                                 <div class="card-body">
                                     <table class="table table-striped text-white">
                                         <tr>
-                                            <th>Product Id</th>
-                                            <td>f
+                                            <th>Nama Barang</th>
+                                            <td><?php echo $result["namabarang"] ?>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th>Name</th>
-                                            <td>Kacang</td>
+                                            <th>Ringkasan</th>
+                                            <td><?php echo $result["ringkasan"] ?></td>
                                         </tr>
                                         <tr>
-                                            <th>Price</th>
-                                            <td>5555</td>
+                                            <th>Deskripsi</th>
+                                            <td><?php echo $result["deskripsi"] ?></td>
                                         </tr>
                                         <tr>
-                                            <th>Stock</th>
-                                            <td>5555</td>
+                                            <th>Harga</th>
+                                            <td><?php echo $result["harga"] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Stock Tersedia</th>
+                                            <td><?php echo $result["stock"] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Kategori</th>
+                                            <td><?php echo $result["kategori"] ?></td>
                                         </tr>
                                         <tr>
                                             <th>Picture</th>
-                                            <td><img width="100px" class="rounded" src="#">
+                                            <td><img width="100px" class="rounded" src="../public/assets/product_img/<?php echo $result["gambar"]  ?>">
                                             </td>
                                         </tr>
                                     </table>
