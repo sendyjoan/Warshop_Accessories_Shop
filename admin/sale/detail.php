@@ -2,10 +2,6 @@
     include_once("../../config.php");
 
     // Get id from URL to delete that user
-$id = $_GET['idpembelian'];
-
-    $result = mysqli_query($mysqli, "SELECT * FROM pembelian INNER JOIN chart ON pembelian.idpembelian = chart.idpembelian INNER JOIN product ON chart.idproduct = users.idproduct
-                            WHERE idpembelian = $id");
 
     session_start();
     if (!isset($_SESSION["role"])) {
@@ -17,6 +13,12 @@ $id = $_GET['idpembelian'];
 
     $profile = mysqli_query($mysqli, "SELECT * FROM users WHERE email = '$email'");
     $profile = mysqli_fetch_array($profile);
+
+    $id = $_GET['id'];
+
+    $result = mysqli_query($mysqli, "SELECT * FROM chart INNER JOIN pembelian ON chart.idpembelian = pembelian.idpembelian INNER JOIN products ON chart.idproduct = products.idproduct
+                            INNER JOIN users ON pembelian.iduser = users.id
+                            WHERE chart.idpembelian = $id");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -159,7 +161,6 @@ $id = $_GET['idpembelian'];
                                     </table>
                                     <div class="d-flex">
                                         <a class="btn btn-success mt-3" href="index.php">Kembali</a>
-                                        <li class="btn mt-3"><?php echo $data['totalpembelian'] ?></li>
                                     </div>
                                 </div>
                             </div>

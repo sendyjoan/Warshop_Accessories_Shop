@@ -149,6 +149,8 @@
                                                 <td>
                                                     <a class="btn btn-info"
                                                         href="detail.php?id='<?php echo $data['idpembelian']?>'">Detail</a>
+                                                    <a class="btn btn-info"
+                                                        href="keterangan.php?id='<?php echo $data['idpembelian']?>'">Keterangan</a>
                                                 </td>
                                             </tr>
                                             <?php
