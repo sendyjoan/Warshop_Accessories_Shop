@@ -1,7 +1,11 @@
 <?php
     include_once("../../config.php");
 
-    $result = mysqli_query($mysqli, "SELECT * FROM pembelian INNER JOIN users ON pembelian.iduser = users.id");
+    // Get id from URL to delete that user
+$id = $_GET['idpembelian'];
+
+    $result = mysqli_query($mysqli, "SELECT * FROM pembelian INNER JOIN chart ON pembelian.idpembelian = chart.idpembelian INNER JOIN product ON chart.idproduct = users.idproduct
+                            WHERE idpembelian = $id");
 
     session_start();
     if (!isset($_SESSION["role"])) {
@@ -91,13 +95,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../product/">
+                        <a class="nav-link" href="index.php">
                             <span class="menu-title">Tabel Produk</span>
                             <i class="mdi mdi-table-large menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">
+                        <a class="nav-link" href="../user/">
                             <span class="menu-title">Tabel Pengguna</span>
                             <i class="mdi mdi-table-large menu-icon"></i>
                         </a>
@@ -110,23 +114,26 @@
                     </li>
                 </ul>
             </nav>
+
             <div class="main-panel">
                 <div class="content-wrapper">
-                    <div class="page-header">
-                        <h3 class="page-title"> Tabel Pengguna </h3>
-                    </div>
                     <div class="row">
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
+                                <div class="card-header">
+                                    <a style="text-decoration: none;" class="text-dark" href="index.php">Produk / </a>
+                                    <a style="text-decoration: none;" class="text-dark font-weight-bold"
+                                        href="detail.php">Detail
+                                        Pembelian</a>
+                                </div>
                                 <div class="card-body">
                                     <table class="table table-striped table-hover">
                                         <thead>
                                             <tr>
-                                                <th>Nama Pengguna</th>
-                                                <th>Tanggal Pembelian</th>
-                                                <th>Total Belanja</th>
-                                                <th>Bukti Pembayaran</th>
-                                                <th>Aksi</th>
+                                                <th>Nama Barang</th>
+                                                <th>Harga Barang</th>
+                                                <th>Jumlah</th>
+                                                <th>Subtotal</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -134,30 +141,28 @@
                                                 while($data = mysqli_fetch_array($result)) {         
                                             ?>
                                             <tr>
-                                                <td><?php echo $data['name']?></td>
-                                                <td><?php echo $data['tanggalpembelian'] ?></td>
-                                                <td><?php echo $data['totalpembelian'] ?></td>
-                                                <td><img class="rounded" width="200px;" height="200px;"
-                                                        src="../../public/assets/payment_img/<?php echo $data['buktipembayaran'] ?>"
-                                                        alt=""></td>
-                                                <td>
-                                                    <a class="btn btn-info"
-                                                        href="detail.php?id='<?php echo $data['idpembelian']?>'">Detail</a>
-                                                </td>
+                                                <td><?php echo $data['namabarang']?></td>
+                                                <td><?php echo $data['harga'] ?></td>
+                                                <td><?php echo $data['qty'] ?></td>
+                                                <td><?php echo $data['total'] ?></td>
                                             </tr>
                                             <?php
                                                 }
                                             ?>
                                         </tbody>
                                     </table>
+                                    <div class="d-flex">
+                                        <a class="btn btn-success mt-3" href="index.php">Kembali</a>
+                                        <li class="btn mt-3"><?php echo $data['totalpembelian'] ?></li>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- page-body-wrapper ends -->
         </div>
-        <!-- page-body-wrapper ends -->
         <footer class="footer">
             <div class="container-fluid d-flex justify-content-between">
                 <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright ©Warshop
