@@ -14,7 +14,6 @@ $id = $_SESSION["id"];
 include_once("../config.php");
 // Fetch all users data from database
  $result = mysqli_query($mysqli, "SELECT * FROM products ORDER BY idproduct ASC");
- session_start();
  if (isset($_SESSION["role"])) {
     echo "<script>
     document.location.href = '../auth/login.php';
