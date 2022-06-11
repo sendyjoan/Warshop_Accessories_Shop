@@ -1,12 +1,13 @@
 <?php 
 session_start();
 if (isset($_POST["bayarchart"]) && isset($_SESSION["chart"])) {
-    var_dump($_POST);
+    
 }elseif (isset($_POST["payment"])) {
     include_once("../../config.php");
 
-    $totalpembayaran = $_POST["total"];
-    $date = date('d / M / y');
+    $iduser = $_SESSION["id"];
+    $total = $_POST["total"];
+    $date = date("Y-m-d H:i:s");
     
     // gambar
     $namaFile = $_FILES['bukti']['name'];
@@ -42,9 +43,43 @@ if (isset($_POST["bayarchart"]) && isset($_SESSION["chart"])) {
 	move_uploaded_file($tmpName, '../../public/assets/payment_img/' . $namaFileBaru);
     $gambar = $namaFileBaru;
 
-    echo $gambar;
+    $pembelian = mysqli_query($mysqli, "INSERT INTO pembelian VALUES ('', '$iduser', '$date', '$total', '$gambar')");
+    
+    if (mysqli_affected_rows($mysqli) > 0) {
+        // Menginput Detail Chart
+        $idpembelian = mysqli_query($mysqli, "SELECT idpembelian FROM pembelian WHERE buktipembayaran = '$gambar'");
+        $idpembelian = mysqli_fetch_array($idpembelian);
+        $idpembelian = (int)$idpembelian["idpembelian"];
+        
+        foreach ($_SESSION["chart"] as $id_product => $jumlah) {
+            $subtot = mysqli_query($mysqli, "SELECT harga FROM products WHERE idproduct = '$id_product'");
+            $subtot = mysqli_fetch_array($subtot);
+            $subtot = $subtot["harga"] * $jumlah;
+            // var_dump($id_product);
+            // var_dump($idpembelian);
+            // var_dump($jumlah);
+            // var_dump($subtot);
+            mysqli_query($mysqli, "INSERT INTO chart VALUES ('', '$id_product', '$idpembelian', '$jumlah', '$subtot')");
+        }
 
-
+        if (mysqli_affected_rows($mysqli) > 0) {
+            unset($_SESSION["chart"]);
+            echo "<script>
+            alert('Transaksi Berhasil');
+            document.location.href = 'chart.php';
+            </script>";
+        }else{
+            echo "<script>
+            alert('Transaksi Gagal');
+            document.location.href = 'chart.php';
+            </script>";
+        }
+    }else{
+        echo "<script>
+        alert('Data gagal Di Simpan');
+        document.location.href = 'chart.php';
+        </script>";
+    }
 }else{
     echo "<script>
     alert('Anda belum memiliki tagihan');
